@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../../static/css/important.css" rel="stylesheet">
+    <link href="../../static/css/carlos/login.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Login</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../../html/carlos/home.html">
+                <img src="../../static/img/samsung_logo.png" class="website-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_content" aria-controls="navbar_content" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar_content">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../../html/carlos/home.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="dropdown_mobile"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Mobiles
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown_mobile">
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="../../html/eric/Gelexy_Fold.html"
+                                >Gelexy Fold</a
+                            >
+                            </li>
+                            <li>
+                            <a class="dropdown-item" href="../../html/eric/Gelexy_Note_S50.html"
+                                >Gelexy NoteS50</a
+                            >
+                            </li>
+                            <li>
+                            <a class="dropdown-item" href="../../html/eric/Gelexy_Teb.html"
+                                >Gelexy Tab</a
+                            >
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="tvav_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        TV & AV
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="tvav_dropdown">
+                          <li><a class="dropdown-item" href="../../html/vincent/tv&av.html">TV & AV</a></li>
+                          <li><a class="dropdown-item" href="../../html/vincent/TV.html">TV</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="../../html/vincent/Home Audio.html">Soundbar</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="../../html/vincent/SoundTower.html">Sound Tower</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smarthome_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Smarthome
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="smarthome_dropdown">
+                            <li><a class="dropdown-item" href="../../html/alfin/Split_Your_screen.html">Split Your Screen, Double the Fun</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../../html/alfin/Do_laundry.html">Do Laundry From Anywhere</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../../html/alfin/Set_Mood.html">Set the Mood</a></li>
+                        </ul>
+                      </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="home_app_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Home Appliance
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="home_app_dropdown">
+                            <li><a class="dropdown-item" href="../../html/steven/home_appliance.html">Home Appliance</a></li>
+                            <li><a class="dropdown-item" href="../../html/steven/kulkas.html">Kulkas</a></li>
+                            <li><a class="dropdown-item" href="../../html/steven/mesin_cuci.html">Mesin Cuci</a></li>
+                            <li><a class="dropdown-item" href="../../html/steven/air_solutions.html">Air Solutions & AC</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <a class="user-login btn btn-dark" id="user_login" type="button" href="../../html/carlos/login_page.html">Login</a> 
+        </div>
+    </nav>
+
+    <div id="form_container" class="container-fluid">
+        <div class="container container-form">
+            <form action="../../html/carlos/home.html">
+                <h1 class="login-logo">Login</h1>
+                <div class="row">
+                    <div class="col">
+                        <label for="username">Username:</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" id="username" name="username" required="1">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="password">Password:</label>
+                    </div>
+                    <div class="col">
+                        <input type="password" id="password" name="password" required="1">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input class="login-button btn btn-dark" id="login_button" type="submit" value="Login"> 
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col" id="company_logo_footer">
+                    <a class="navbar-brand" href="../../html/carlos/home.html">
+                        <img src="../../static/img/samsung_logo.png" class="website-logo">
+                    </a>
+                    <p>Samseng The Way of Life</p>
+                </div>
+                <div class="col" id="information_footer">
+                    <div class="row">
+                        <h4>Hyperlink</h4>
+                        <ul>
+                            
+                            <li>
+                                <a href="../../html/carlos/about_us.html" class="footer-link">About Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

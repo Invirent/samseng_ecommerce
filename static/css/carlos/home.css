@@ -1,0 +1,71 @@
+.carousel-right{
+    color: black;
+    background-color: rgba(92, 86, 86, 0.315);
+    top: 30%;
+    bottom: 50%;
+    left: 60%;
+    box-shadow: 3px 3px 1px rgb(158, 154, 154);
+}
+
+.carousel-middle{
+    color: black;
+    background-color: rgba(209, 202, 202, 0.411);
+    top: 40%;
+    bottom: 40%;
+    left: 30%;
+    right: 30%;
+    box-shadow: 3px 3px 3px rgb(158, 154, 154);
+}
+
+.carousel-left{
+    color: wheat;
+    background-color: rgba(209, 202, 202, 0.411);
+    top: 40%;
+    bottom: 40%;
+    left: 10%;
+    right: 60%;
+    box-shadow: 3px 3px 3px rgb(158, 154, 154);
+}
+
+.carousel-title{
+    font-family: remachine ,'Courier New', Courier, monospace;
+}
+
+.inner-content{
+    margin-top: 1px;
+    border-top: 5px solid rgb(39, 104, 134);
+}
+
+.content-img{
+    padding: 1px;
+    height: 400px;
+    margin-top: 20px;
+    box-shadow: 3px 3px 3px black;
+    margin-left: 50px;
+    border-radius: 5%;
+    margin-bottom: 10px;
+}
+
+.content-title{
+    padding: 20px;
+    margin-top: 200px;
+}
+
+.content{
+    background-color: rgb(208 197 197);
+    padding-bottom: 50px;
+}
+
+.inner-left{
+    text-align: left;
+    margin-left: 50px;
+}
+
+.inner-right{
+    text-align: right;
+    margin-right: 50px;
+}
+
+.navbar-background-samsung{
+    
+}

@@ -1,0 +1,49 @@
+@font-face {
+    font-family: candyful;
+    src: url('../../static/font/candyful.ttf');
+}
+
+@font-face {
+    font-family: remachine;
+    src: url('../../static/font/remachine-script.ttf');
+}
+
+.website-logo{
+    width: 200px;
+    height: 50px;
+}
+
+.navbar{
+    border-bottom: 5px solid black;
+}
+
+footer{
+    border-top: 5px solid black;
+    background-color: rgb(87, 87, 87);
+}
+
+footer .container-fluid{
+    margin-top: 10px;
+}
+
+footer{
+    color: white;
+}
+
+#information_footer{
+    text-align: right;
+    margin-right: 30px;
+}
+
+#information_footer a{
+    text-decoration: none;
+    color: white;
+}
+
+#information_footer ul{
+    list-style-type: none;
+}
+
+#information_footer h4{
+    font-family: candyful,'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

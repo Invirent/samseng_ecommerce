@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+#container-gelexyXX {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 50%;
+}
+#container-gelexyXX .body {
+  margin: 5% 0;
+  font-size: 2rem;
+}
+#container-gelexyXX h1 {
+  margin: 5%;
+  margin-bottom: 10%;
+}
+button {
+  font-size: 2rem;
+  padding: 5%;
+  border: 3px solid black;
+  box-shadow: 13px 12px 19px -7px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 13px 12px 19px -7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 13px 12px 19px -7px rgba(0, 0, 0, 0.75);
+}
+button:hover {
+  background-color: #fff;
+  cursor: pointer;
+}
+figure picture img {
+  width: 50%;
+  margin: 5%;
+}
+.penjelasan {
+  margin: 5%;
+  text-align: left;
+  font-size: 2rem;
+  line-height: 4vh;
+}
+.penjelasan h2 {
+  margin-bottom: 2%;
+}
+.testi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+.testi h2 {
+  margin-bottom: 5%;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-align: center;
+}
+.video {
+  display: flex;
+}
+.videotesti {
+  margin: 1%;
+}
