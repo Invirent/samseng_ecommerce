@@ -4,5 +4,5 @@
     }
 </style>
 <?php 
-    include "html/carlos/home.html";
+    include "html/home.html";
 ?>
