@@ -6,4 +6,5 @@
         ";
         $result = mysqli_query($link,$sql);
         return $result;
+    }
 ?>
