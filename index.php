@@ -35,7 +35,7 @@
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
+                        <a class="nav-link" href="php/product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="php/shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
