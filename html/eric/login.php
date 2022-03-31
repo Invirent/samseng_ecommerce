@@ -1,11 +1,17 @@
 <?php
+
+session_start();
 require 'functions.php';
+
+if (isset($_SESSION['username'])) {
+    header("Location: ../../index.php");
+}
 
 if(isset($_POST["login"])){
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $result = mysqli_query($conn,"SELECT * FROM users WHERE username ='$username'");
+    $result = mysqli_query($conn,"SELECT * FROM user_login WHERE username ='$username'");
 
     //cek username
     if(mysqli_num_rows($result) === 1) {
@@ -13,8 +19,9 @@ if(isset($_POST["login"])){
         // cek password
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
-
-            header("Location: index.php");
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['user_id'] = $row['id'];
+            header("Location: ../../index.php");
             exit;
         }
     }

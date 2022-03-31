@@ -1,3 +1,6 @@
+<?php 
+    require __DIR__ . '/shopping_cart.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,12 +57,20 @@
                 </ul>
             </div>
             
-            <a class="user-login btn btn-dark" id="user_login" type="button" href="#">Login</a> 
+            <?php
+                if (!isset($_SESSION['user_id'])) {
+                    $login = "<a href='html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
+                    <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login.php'>Login</a>";
+                }else{
+                    $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+                }
+                echo $login;
+            ?>
         </div>
     </nav>
 
 <?php
-    require __DIR__ . '/shopping_cart.php';
+    
     
     $query = queryTable();
     $looping_tr = "";

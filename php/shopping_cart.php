@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     require __DIR__ . '/../connect_database.php';
 
     function queryCart($user_id){
@@ -23,7 +25,7 @@
     }
     
     function queryTable(){
-        $user_id = 2;
+        $user_id = $_SESSION['user_id'];
         $connect = connectLocalDb();
         $query = queryCart($user_id);
         $result = mysqli_query($connect,$query);
