@@ -40,9 +40,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="php/shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="php/checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
-                    </li>
                 </ul>
             </div>
             <?php
