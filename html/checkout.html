@@ -129,12 +129,10 @@
 <div class="row">
     <div class="col-85">
       <div class="container">
-        <form action="/action_page.php">
-  
+        <form action="checkout_data.php" method="post"> 
           <div class="row">
             <div class="col-60">
               <h3>Billing Address</h3>
-              <form action="checkout.php" method="post">
               <label for="fname"><i class="fa fa-user"></i> Full Name</label>
               <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
               <label for="email"><i class="fa fa-envelope"></i> Email</label>
@@ -143,7 +141,7 @@
               <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
               <label for="city"><i class="fa fa-institution"></i> City</label>
               <input type="text" id="city" name="city" placeholder="New York">
-            </form>
+
               <div class="row">
                 <div class="col-50">
                   <label for="state">State</label>
