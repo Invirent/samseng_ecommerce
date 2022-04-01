@@ -11,32 +11,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>Order Page</title>
     <style type="text/css">
+
         .background-samsung{
             background-color: rgb(240, 210, 45);
         }
 
-
-
-        .carousel-slide{
-            margin: 30px;
-            width: 600px;
-        }
-
-        /* .carousel-inner{
+        .carousel-inner{
             padding-top: 25px;
             padding-left: 20px;
-            width: 650px;
-            height: 510px;
+            padding-bottom: 25px;
+            width: 600px;
+            height: 600px;
             transition: opacity .6s ease;
 
         }
 
-        .carousel-item{
+        .carousel-control-next-icon {
+            width: 15%;
+        }
+        /* .carousel-item{
             width: 600px;
             height: 510px;
-        }
+        } */
 
-        .carousel-control-prev{
+        /* .carousel-control-prev{
             background-color: rgb(240, 210, 45);
             padding-left: 25px;
             height: 500px;
@@ -48,7 +46,12 @@
             padding-left: -100px;
             height: 500px;
             width: 75px;
-        } */ */
+        } */
+
+        .product-detail{
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
 
     </style>
 
@@ -87,32 +90,54 @@
     <div>
         <?php
             echo "
-            <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
-                <div class='carousel-indicators'>
-                    <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
-                    <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
-                    <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
+            <div class='main-container'>
+                <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
+                    <div class='carousel-indicators'>
+                        <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
+                        <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
+                        <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
+                    </div>
+                    <div class='carousel-inner'>
+                        <div class='carousel-item active'>
+                            <img src='../static/img/Samsung A53 5G.png' class='d-block w-100' alt='Samsung A53 5G'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/Samsung A53 two.jpg' class='d-block w-100' alt='...'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/Samsung A53 three.jpg' class='d-block w-100' alt='...'>
+                        </div>
+                    </div>
+                    <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
+                        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Previous</span>
+                    </button>
+                    <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next'>
+                        <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Next</span>
+                    </button>
                 </div>
-                <div class='carousel-inner'>
-                    <div class='carousel-item active'>
-                        <img src='../static/img/Samsung A53 5G.png' class='d-block w-100' alt='Samsung A53 5G'>
-                    </div>
-                    <div class='carousel-item'>
-                        <img src='../static/img/Samsung A53 two.jpg' class='d-block w-100' alt='...'>
-                    </div>
-                    <div class='carousel-item'>
-                        <img src='../static/img/Samsung A53 three.jpg' class='d-block w-100' alt='...'>
-                    </div>
-                </div>
-                <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
-                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                    <span class='visually-hidden'>Previous</span>
-                </button>
-                <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next'>
-                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                    <span class='visually-hidden'>Next</span>
-                </button>
             </div>
+
+            <div class='product-container'>
+                <div class='product-detail'>
+                    <h1>Samsung Galaxy A53 5G</h1>
+                    <b style='font-size: x-large;'>Rp6.000.000</b>
+                    <br><br><b>Garansi Resmi Samsung Indonesia</b>
+                    <br><a>Processor: Eynos 1280</a>
+                    <br><a>Display: Super AMOLED, 120Hz, 800 nits (HBM)</a>
+                    <br><a>Main Camera: 64 MP, f/1.8, 26mm (wide), 1/1.7X, 0.8µm, PDAF, OIS</a>
+                    <br><a>Selfie Camera: 32 MP, f/2.2, 26mm (wide), 1/2.8, 0.8µm</a>
+                    <br><a>RAM: 8GB</a>
+                    <br><a>Internal Storage: 128GB</a>
+                    <br><a>Network: 5G</a>
+                    <br><a>Battery Capacity: 5.000mAh</a>
+                    <br><a>Water Resistant: IP67 dust/water resistant (up to 1m for 30 mins)</a>
+                    <br>
+                </div>
+                
+            </div>
+            
             ";
             
         ?>    
