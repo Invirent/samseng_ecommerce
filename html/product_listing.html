@@ -8,6 +8,7 @@
     <link href="../static/css/important.css" rel="stylesheet">
     <link href="../static/css/carlos/home.css" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/font-awesome.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>Product Listing</title>
     <style type="text/css">
@@ -20,6 +21,10 @@
 
             width: 1300px;
             height: 700px;
+        }
+
+        .list-group-item {
+            text-align: center;
         }
     </style>
 </head>
@@ -55,34 +60,21 @@
             <a class="user-login btn btn-dark" id="user_login" type="button" href="#">Login</a> 
         </div>
     </nav>
-
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="../static/img/Promo_Gajian.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="../static/img/Galaxy_A53.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="../static/img/Flash Sale.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="../static/img/Promo_Gajian.jpg" class="d-block w-100 h-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="../static/img/Galaxy_A53.jpg" class="d-block w-100 h-100" alt="...">
-          </div>
+    
+    <div class="row">
+        <div class="col-md-2 bg-light">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-warning"><i class="fas fa-list"></i>KATEGORI PRODUK</li>
+                <li class="list-group-item"><i class="fas fa-angle-right"></i> Smartphone</li>
+                <li class="list-group-item"><i class="fas fa-angle-right"></i> Laptop</li>
+                <li class="list-group-item"><i class="fas fa-angle-right"></i> Monitor</li>
+                <li class="list-group-item"><i class="fas fa-angle-right"></i> TV</li>
+                <li class="list-group-item"><i class="fas fa-angle-right"></i> AC</li>
+                <li class="list-group-item"><i class="fas fa-angle-right"></i> Kulkas</li>
+            </ul>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+        <div class="col-md-10"></div>
+    </div>
 
     <footer>
         <div class="container-fluid">
