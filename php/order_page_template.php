@@ -1,3 +1,7 @@
+<?php
+    require __DIR__ . '/../connect_database.php';
+    // include '../html/order_page.html';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,9 +57,7 @@
             padding-left: 580px;
             padding-bottom: 40px;
         }
-
     </style>
-
 </head>
 <body>
     <!-- Navbar -->
@@ -144,28 +146,12 @@
                                <form action="#">
                                   <div class="data">
                                      <label>Stock: 200</label>
-                                     <br>
-                                     <button onclick="decrement()">-</button>
-                                     <h2 id="root"></h2>
-                                     <button onclick="increment()">+</button>
+                                     <input type="text" required>
                                   </div>
                                   <div class="btn">
                                      <div class="inner"></div>
                                      <button type="submit">Checkout</button>
                                   </div>
-                                  <script>
-                                  var data=0;
-                                  document.getElementById("root").innerText=data;
-                                  function increment(){
-                                      data=data+1;
-                                      document.getElementById("root"),innerText=data;
-                                  }
-                                  function decrement(){
-                                      data=data-1;
-                                      document.getElementById("root").innerText=data;
-                                  }
-
-                                </script>
                                </form>
                             </div>
                          </div>
@@ -198,7 +184,4 @@
             </div>
         </div>
     </footer>
-
-    
 </body>
-</html>
