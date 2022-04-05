@@ -22,11 +22,11 @@
             float: left;
         }
         .carousel-inner {
-            padding-top: 50px;
+            padding-top: 10px;
             padding-left: 20px;
             padding-bottom: 25px;
-            width: 660px;
-            height: 700px;
+            width: 860px;
+            height: 430px;
             transition: opacity .6s ease;
 
         }
@@ -34,18 +34,23 @@
             height: 75%;
         }
         .carousel-control-next {
-            padding-right: 40px;
+            padding-right: 10px;
             height: 75%;
         }
 
         .product-detail {
             padding-bottom: 10px;
+			width: 900px;
+
         }
 
         .product-container {
-            padding-top: 65px;
-            padding-left: 580px;
+            padding-top: 15px;
+            padding-left: 1080px;
         }
+		.main-container{
+		width: 1460px;
+		}
     </style>
 
 </head>
@@ -81,8 +86,6 @@
     </nav>
 
     <div>
-        <?php
-            echo "
             <div class='main-container'>
                 <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
                     <div class='carousel-indicators'>
@@ -90,7 +93,7 @@
                         <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
                         <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
                     </div>
-                    <div class='carousel-inner'>
+                    <div class="carousel-inner">
                         <div class='carousel-item active'>
                             <img src='../static/img/Samsung A53 5G.png' class='d-block w-100' alt='Samsung A53 5G'>
                         </div>
@@ -111,8 +114,8 @@
                     </button>
                 </div>
 
-                <div class='product-container'>
-                    <div class='product-detail'>
+                <div class="product-container">
+                    <div class="product-detail">
                         <h1>Samsung Galaxy A53 5G</h1>
                         <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
                         <br><b style='font-size: xx-large;'>Rp6.000.000</b>
@@ -127,14 +130,10 @@
                         <br><a>Battery Capacity: 5.000mAh</a>
                         <br><a>Water Resistant: IP67 dust/water resistant (up to 1m for 30 mins)</a>
                         <br>
+						<br>
                     </div>
                 </div>
-            </div>
-
-            
-            ";
-            
-        ?>    
+            </div>   
     </div>
 
     <footer>
