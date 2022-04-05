@@ -1,3 +1,7 @@
+<?php
+    require __DIR__ . '/../connect_database.php';
+    // include '../html/order_page.html';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,9 +57,7 @@
             padding-left: 580px;
             padding-bottom: 40px;
         }
-
     </style>
-
 </head>
 <body>
     <!-- Navbar -->
@@ -182,7 +184,4 @@
             </div>
         </div>
     </footer>
-
-    
 </body>
-</html>
