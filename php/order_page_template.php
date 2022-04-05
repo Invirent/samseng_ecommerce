@@ -33,7 +33,6 @@
             width: 860px;
             height: 480px;
             transition: opacity .6s ease;
-
         }
 
         .carousel-indicators {
@@ -56,6 +55,14 @@
             padding-top: 65px;
             padding-left: 580px;
             padding-bottom: 40px;
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+        @media (max-width: 800px) {
+            .row {
+                flex-direction: column-reverse;
+            }
+            
         }
     </style>
 </head>
