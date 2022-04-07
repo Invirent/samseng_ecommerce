@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
     session_start();
 
     require __DIR__ . '/../connect_database.php';
@@ -7,22 +6,18 @@
     function queryProduct($user_id) {
         $sql = "
         SELECT
-            user.id as user_id,
-            order.id as order_id,
-            order.product_id as product_id,
-            order.product_name as product_name,
-            order.product.price as product_price,
-            category.id as category_id,
-            uom.id as uom_id,
-            product.description as product_description,
-            image.path as image_path,
-            like.count as like_count
-        FROM order_order page
-        LEFT JOIN product_template product ON order.product_id = product.id
-        LEFT JOIN user_login customer ON order.product_name = product.name
-        WHERE order.product_name = $user_id
-        AND like.count = 0
+            product_template.id as product_id,
+            product_template.name as product_name,
+            product_template.product_price as product_price,
+            product_template.category_id as category_id,
+            product_template.uom_id as uom_id,
+            product_template.description as product_description,
+            product_template.image_path as image_path,
+            product_template.like_count as like_count
+        FROM product_template
+        WHERE product_template.id = 1
         ";
+        return $sql;
     }
 
     function searchCurrentUser($username){
@@ -35,10 +30,28 @@
         return $sql;
     }
 
-    
-=======
+    function queryTable() {
+        $connect = connectLocalDb();
 
-    include '../html/order_page.html';
->>>>>>> e7091bf93dd89b9f72dc14e1fafff73d96a4fdb0
+        $username = $_SESSION['username'];
+        $search_user = SearchCurrentUser($username);
+        $user_query = mysqli_query($connect,$search_user);
+        $user_id = 0;
+        foreach ($user_query as $user) {
+            $user_id = $user['user_id'];
+            break;
+        }
+        $condition = "WHERE cart.customer_id = $user_id";
+        $query = queryProduct($condition);
+        $product_order = [];
+        $result = mysqli_query($connect,$query);
+        while ($row = mysqli_fetch_assoc($result)) {
+            array_push($product_order,$row);
+        }
+        return $product_order;
+    }
+    
+
+    // include '../html/order_page.html';
 
 ?>

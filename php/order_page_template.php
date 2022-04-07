@@ -1,7 +1,6 @@
 <?php
     // require __DIR__ . '/../connect_database.php';
     require __DIR__ . '/order_page.php';
-    session_start();
     // include '../html/order_page.html';
 ?>
 <!DOCTYPE html>
@@ -37,21 +36,28 @@
             transition: opacity .6s ease;
         }
 
-        .carousel-indicators {
-            padding-top: 50px;
-        }
-
         .carousel-control-prev {
             height: 75%;
         }
+
         .carousel-control-next {
             padding-right: 10px;
             height: 75%;
         }
 
         .product-detail {
-            padding-bottom: 30px;
+            padding-bottom: 10px;
+            width: 900px;
         }
+
+        .carousel-indicators {
+            padding-top: 15px;
+            padding-left: 1080px;
+        }
+
+        
+
+        
 
         .product-container {
             padding-top: 65px;
@@ -112,12 +118,12 @@
 <?php
     $account_name = $_SESSION['username'];
     $account_id = searchCurrentUser($account_name);
-    $query = queryProduct($account_id);
+    $query = queryTable($account_id);
     $looping_tr = "";
     $number = 0;
     foreach ($query as $row) {
-        $id = $row['order_id'];
-        $user_id = $row['user_id'];
+        // $id = $row['order_id'];
+        // $user_id = $row['user_id'];
         $product_id = $row ['product_id'];
         $product_name = $row ['product_name'];
         $product_price = $row ['product_price'];
@@ -126,9 +132,9 @@
         $product_description = $row ['product_description'];
         $image_path = $row ['image_path'];
         $like_count = $row ['like_count'];
-        if (file-exists($row['image_path'])) {
-            $image_path = "../static/img/Samsung A53 5G.png";
-        }
+        // if (file-exists($row['image_path'])) {
+        //     $image_path = "";
+        // }
 
         $looping_tr .= "
             <tr>
@@ -182,6 +188,9 @@
 
                 <div class="product-container">
                     <div class="product-detail">
+                    <?php 
+                        echo $product_name;
+                    ?>
                         <h1>Samsung Galaxy A53 5G</h1>
                         <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
                         <br><b style='font-size: xx-large;'>Rp6.000.000</b>
