@@ -1,5 +1,7 @@
 <?php
-    require __DIR__ . '/../connect_database.php';
+    // require __DIR__ . '/../connect_database.php';
+    require __DIR__ . '/order_page.php';
+    session_start();
     // include '../html/order_page.html';
 ?>
 <!DOCTYPE html>
@@ -93,9 +95,61 @@
                 </ul>
             </div>
             
-            <a class="user-login btn btn-dark" id="user_login" type="button" href="#">Login</a> 
+            <?php
+                if (!isset($_SESSION['user_id'])) {
+                    $login = "<a href='html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
+                    <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login.php'>Login</a>";
+                }else{
+                    $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+                }
+                echo $login;
+
+                
+            ?> 
         </div>
     </nav>
+
+<?php
+    $account_name = $_SESSION['username'];
+    $account_id = searchCurrentUser($account_name);
+    $query = queryProduct($account_id);
+    $looping_tr = "";
+    $number = 0;
+    foreach ($query as $row) {
+        $id = $row['order_id'];
+        $user_id = $row['user_id'];
+        $product_id = $row ['product_id'];
+        $product_name = $row ['product_name'];
+        $product_price = $row ['product_price'];
+        $category_id = $row ['category_id'];
+        $uom_id = $row ['uom_id'];
+        $product_description = $row ['product_description'];
+        $image_path = $row ['image_path'];
+        $like_count = $row ['like_count'];
+        if (file-exists($row['image_path'])) {
+            $image_path = "../static/img/Samsung A53 5G.png";
+        }
+
+        $looping_tr .= "
+            <tr>
+                <td class='border product-data'>
+                    <div class='container'>
+                        <div class='row'>
+                            <div class='col'>
+                                <img src='$image_path'
+                                class='product-image' alt='$product_name'/>
+                            </div>
+                            <div class='col'>
+                                <span>$product_name</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                
+        ";
+
+    }
+?>
 
     <div>
             <div class='main-container'>

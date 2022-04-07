@@ -24,10 +24,31 @@
         return $sql;
     }
     
+    function searchCurrentUser($username){
+        $sql = "
+            SELECT login.id as user_id
+            FROM user_login login
+            WHERE login.username = '$username'
+            LIMIT 1
+        ";
+        return $sql;
+    }
+
     function queryTable(){
-        $user_id = $_SESSION['user_id'];
         $connect = connectLocalDb();
-        $query = queryCart($user_id);
+
+        $username = $_SESSION['username'];
+        $search_user = searchCurrentUser($username);
+        $user_query = mysqli_query($connect,$search_user);
+        $user_id = 0;
+        foreach ($user_query as $user){
+            $user_id = $user['user_id'];
+            break;
+        }
+
+        $condition = "WHERE cart.customer_id = $user_id";
+        $query = queryCart($condition);
+
         $result = mysqli_query($connect,$query);
         return $result;
     }
