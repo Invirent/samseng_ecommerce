@@ -1,9 +1,7 @@
 <?php
-    session_start();
-
     require __DIR__ . '/../connect_database.php';
 
-    function queryCart($user_id){
+    function queryCart($condition){
         $sql = "
         SELECT
             cart.id as cart_id,
@@ -18,16 +16,37 @@
         FROM cart_order cart
         LEFT JOIN product_template product ON cart.product_id = product.id
         LEFT JOIN user_login customer ON cart.customer_id = customer.id
-        WHERE cart.customer_id = $user_id
+        $condition
         AND cart.is_sale_order = 0
+        ";
+        return $sql;
+    }
+
+    function searchCurrentUser($username){
+        $sql = "
+            SELECT login.id as user_id
+            FROM user_login login
+            WHERE login.username = '$username'
+            LIMIT 1
         ";
         return $sql;
     }
     
     function queryTable(){
-        $user_id = $_SESSION['user_id'];
         $connect = connectLocalDb();
-        $query = queryCart($user_id);
+
+        $username = $_SESSION['username'];
+        $search_user = searchCurrentUser($username);
+        $user_query = mysqli_query($connect,$search_user);
+        $user_id = 0;
+        foreach ($user_query as $user){
+            $user_id = $user['user_id'];
+            break;
+        }
+        
+        $condition = "WHERE cart.customer_id = $user_id";
+        $query = queryCart($condition);
+
         $result = mysqli_query($connect,$query);
         return $result;
     }
