@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
     session_start();
 
     require __DIR__ . '/../connect_database.php';
@@ -35,5 +36,9 @@
     }
 
     
+=======
+
+    include '../html/order_page.html';
+>>>>>>> e7091bf93dd89b9f72dc14e1fafff73d96a4fdb0
 
 ?>
