@@ -47,7 +47,8 @@
 
         .product-detail {
             padding-bottom: 10px;
-            width: 900px;
+            width: 500px;
+            height: 500px;
         }
 
         .product-container {
@@ -187,13 +188,12 @@ form .btn button{
 }
 .btn-danger.my-cart-btn{
     float: right;
-    margin-right: 500px;
+    margin-right: 200px;
+    margin-top:103px;
 }
 .clear{
     clear:both;
-}
-
-        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top)
+}        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top)
         @media (max-width: 800px) {
             .row {
                 flex-direction: column-reverse;
@@ -317,13 +317,20 @@ form .btn button{
 
                 <div class="product-container">
                     <div class="product-detail">
-                    <?php 
+
+                        <h1> <?php 
                         echo $product_name;
-                    ?>
-                        <h1>Samsung Galaxy A53 5G</h1>
-                        <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
-                        <br><b style='font-size: xx-large;'>Rp6.000.000</b>
-                        <br><br><b>Garansi Resmi Samsung Indonesia</b>
+                    ?></h1>
+                    <b style='color: grey;'>Disukai <?php 
+                        echo $like_count;
+                    ?></b>
+                        <br><b style='font-size: xx-large;'>Rp <?php 
+                        echo $product_price;
+                    ?></b>
+                        <br><a><?php 
+                        echo $product_description;
+                    ?></a>
+                        <!-- <br><br><b>Garansi Resmi Samsung Indonesia</b>
                         <br><a>Processor: Exynos 1280</a>
                         <br><a>Display: Super AMOLED, 120Hz, 800 nits (HBM)</a>
                         <br><a>Main Camera: 64 MP, f/1.8, 26mm (wide), 1/1.7X, 0.8µm, PDAF, OIS</a>
@@ -332,7 +339,7 @@ form .btn button{
                         <br><a>Internal Storage: 128GB</a>
                         <br><a>Network: 5G</a>
                         <br><a>Battery Capacity: 5.000mAh</a>
-                        <br><a>Water Resistant: IP67 dust/water resistant (up to 1m for 30 mins)</a>
+                        <br><a>Water Resistant: IP67 dust/water resistant (up to 1m for 30 mins)</a> -->
                         <hr>
                         <div class="center">
                             <input type="checkbox" id="show">
