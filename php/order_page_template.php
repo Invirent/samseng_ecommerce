@@ -390,8 +390,7 @@ form .btn button{
                         <br>
 						<br>
                     </div>
-                </div>
-                <div class="col-md-10">
+                    <div class="col-md-10">
                     <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators1">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -418,6 +417,8 @@ form .btn button{
                         </button>
                     </div>
                 </div>
+                </div>
+                
             </div>   
     </div>
     
