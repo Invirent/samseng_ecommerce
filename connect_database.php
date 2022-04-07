@@ -41,7 +41,9 @@
             VALUES ($value_sql);
         ";
         $result = mysqli_query($database,$sql);
-        return $result;
+        $last_id = mysqli_insert_id($database);
+
+        return $last_id;
     }
 
 ?>
