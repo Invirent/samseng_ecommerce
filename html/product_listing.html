@@ -18,7 +18,7 @@
 
         .carousel-inner {
             width: 100%;
-            height : 550px;
+            height : 540px;
         }
 
         .list-group-item {
@@ -27,6 +27,19 @@
 
         .carousel-item {
             width: 100%;
+        }
+
+        .card {
+            margin: 25px;
+        }
+        .card p {
+            margin-top: -10px;
+            margin-bottom: 1px;
+        }
+
+        .row .card:hover {
+            box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+            transform: scale(1.02);
         }
     </style>
 </head>
@@ -66,13 +79,13 @@
     <div class="row">
         <div class="col-md-2 bg-light">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item bg-warning"><i class="fas fa-list"></i>KATEGORI PRODUK</li>
-                <li class="list-group-item"><i class="fas fa-angle-right"></i> Smartphone</li>
-                <li class="list-group-item"><i class="fas fa-angle-right"></i> Laptop</li>
-                <li class="list-group-item"><i class="fas fa-angle-right"></i> Monitor</li>
-                <li class="list-group-item"><i class="fas fa-angle-right"></i> TV</li>
-                <li class="list-group-item"><i class="fas fa-angle-right"></i> AC</li>
-                <li class="list-group-item"><i class="fas fa-angle-right"></i> Kulkas</li>
+                <li class="list-group-item bg-warning"><i class="fa fa-list"></i> KATEGORI PRODUK</li>
+                <li class="list-group-item"><i class="fa fa-angle-right"></i> Smartphone</li>
+                <li class="list-group-item"><i class="fa fa-angle-right"></i> Laptop</li>
+                <li class="list-group-item"><i class="fa fa-angle-right"></i> Monitor</li>
+                <li class="list-group-item"><i class="fa fa-angle-right"></i> TV</li>
+                <li class="list-group-item"><i class="fa fa-angle-right"></i> AC</li>
+                <li class="list-group-item"><i class="fa fa-angle-right"></i> Kulkas</li>
             </ul>
         </div>
         <div class="col-md-10">
@@ -104,15 +117,72 @@
               </div>
             <h4 class="text-center font-weight-bold">Produk - Produk Elektronik</h4>
 
-            <div class="row">
-                <div class="card" style="width: 18rem;">
+            <div class="row mx-auto">
+                <div class="card mr-2 ml-2" style="width: 16rem;">
                     <img src="../static/img/Gambar_kedua.png" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="card-body bg-light">
                         <h5 class="card-title">Samsung Galaxy A53 5G</h5>
-                        <p class="card-text">Some quick example</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text">Smartphone</p>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star-half text-success"></i>
+                        <i class="fa fa-star-o text-success"></i>
+                        <br>
+                        <a href="#" class="btn btn-primary">Checkout</a>
+                        <a href="#" class="btn btn-danger">Rp 5.999.999</a>
                     </div>
                 </div>
+
+                <div class="card mr-2 ml-2" style="width: 16rem;">
+                    <img src="../static/img/ASUS ProArt Display PA278QV Professional Monitor.jpg" class="card-img-top" alt="...">
+                    <div class="card-body bg-light">
+                        <h5 class="card-title">Asus ProArt Display</h5>
+                        <p class="card-text">Monitor</p>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star-half text-success"></i>
+                        <br>
+                        <a href="#" class="btn btn-primary">Checkout</a>
+                        <a href="#" class="btn btn-danger">Rp 4.000.000</a>
+                    </div>
+                </div>
+
+                <div class="card mr-2 ml-2" style="width: 16rem;">
+                    <img src="../static/img/BESPOKE Bottom Freeze Refrigerator 350L.jpg" class="card-img-top" alt="...">
+                    <div class="card-body bg-light">
+                        <h5 class="card-title">BESPOKE Refrigerator</h5>
+                        <p class="card-text">Kulkas</p>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star-o text-success"></i>
+                        <br>
+                        <a href="#" class="btn btn-primary">Checkout</a>
+                        <a href="#" class="btn btn-danger">Rp 16.500.000</a>
+                    </div>
+                </div>
+
+                <div class="card mr-2 ml-2" style="width: 16rem;">
+                    <img src="../static/img/LG 22MN430M-B 21.5 FHD IPS Monitor.jpg" class="card-img-top" alt="...">
+                    <div class="card-body bg-light">
+                        <h5 class="card-title">LG 22MN430M-B 21.5 FHD IPS</h5>
+                        <p class="card-text">Monitor</p>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star-o text-success"></i>
+                        <i class="fa fa-star-o text-success"></i>
+                        <br>
+                        <a href="#" class="btn btn-primary">Checkout</a>
+                        <a href="#" class="btn btn-danger">Rp 1.900.000</a>
+                    </div>
+                </div>
+                
+
             </div>
         </div>
     </div> 
