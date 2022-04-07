@@ -77,7 +77,7 @@
 }
 .show-btn, .container{
   position: absolute;
-  top: 55%;
+  top: 58%;
   left: 60%;
   transform: translate(-50%, -50%);
 }
