@@ -167,7 +167,7 @@
                 <i class='fa fa-star-half text-success'></i>
                 <i class='fa fa-star-o text-success'></i>
                 <br>
-                <a href='#' class='btn btn-primary'>Checkout</a>
+                <a href='#' class='btn btn-primary'>Detail</a>
                 <a href='#' class='btn btn-danger'>Rp. $product_price</a>
             </div>
         </div>

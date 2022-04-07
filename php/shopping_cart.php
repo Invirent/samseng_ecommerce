@@ -32,6 +32,16 @@
         return $sql;
     }
     
+    function searchCurrentUser($username){
+        $sql = "
+            SELECT login.id as user_id
+            FROM user_login login
+            WHERE login.username = '$username'
+            LIMIT 1
+        ";
+        return $sql;
+    }
+
     function queryTable(){
         $connect = connectLocalDb();
 
@@ -43,7 +53,6 @@
             $user_id = $user['user_id'];
             break;
         }
-        
         $condition = "WHERE cart.customer_id = $user_id";
         $query = queryCart($condition);
 

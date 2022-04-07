@@ -1,5 +1,6 @@
 <?php
-    require __DIR__ . '/../connect_database.php';
+    // require __DIR__ . '/../connect_database.php';
+    require __DIR__ . '/order_page.php';
     // include '../html/order_page.html';
 ?>
 <!DOCTYPE html>
@@ -35,35 +36,170 @@
             transition: opacity .6s ease;
         }
 
-        .carousel-indicators {
-            padding-top: 50px;
-        }
-
         .carousel-control-prev {
             height: 75%;
         }
+
         .carousel-control-next {
             padding-right: 10px;
             height: 75%;
         }
 
         .product-detail {
-            padding-bottom: 30px;
+            padding-bottom: 10px;
+            width: 900px;
         }
 
         .product-container {
-            padding-top: 65px;
-            padding-left: 580px;
-            padding-bottom: 40px;
+            padding-top: 15px;
+            padding-left: 1080px;
         }
 
-        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+        .main-container {
+		    width: 1460px;
+		}
+        *{
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+.show-btn{
+  background: #fff;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #3498db;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+.show-btn, .container{
+  position: absolute;
+  top: 55%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="checkbox"]{
+  display: none;
+}
+.container{
+  display: none;
+  background: #fff;
+  width: 410px;
+  padding: 30px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+#show:checked ~ .container{
+  display: block;
+}
+.container .close-btn{
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.container .close-btn:hover{
+  color: #3498db;
+}
+.container .text{
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+}
+.container form{
+  margin-top: -20px;
+}
+.container form .data{
+  height: 45px;
+  width: 100%;
+  margin: 40px 0;
+}
+form .data label{
+  font-size: 18px;
+}
+form .data input{
+  height: 100%;
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  border: 1px solid silver;
+}
+form .data input:focus{
+  border-color: #3498db;
+  border-bottom-width: 2px;
+}
+form .btn{
+  margin: 30px 0;
+  height: 45px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+form .btn .inner{
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  z-index: -1;
+  background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+  transition: all 0.4s;
+}
+form .btn:hover .inner{
+  left: 0;
+}
+form .btn button{
+  height: 100%;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.wrapper span{
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.wrapper span.num{
+    font-size: 45px;
+    border-right: 2px solid rgba(0,0,0,0.2);
+    border-left: 2px solid rgba(0,0,0,0.2);
+}
+.btn-danger.my-cart-btn{
+    float: right;
+    margin-right: 500px;
+}
+.clear{
+    clear:both;
+}
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top)
         @media (max-width: 800px) {
             .row {
                 flex-direction: column-reverse;
             }
             
-        }
+        } */
     </style>
 </head>
 <body>
@@ -93,9 +229,62 @@
                 </ul>
             </div>
             
-            <a class="user-login btn btn-dark" id="user_login" type="button" href="#">Login</a> 
+            <?php
+                if (!isset($_SESSION['user_id'])) {
+                    $login = "<a href='html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
+                    <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login.php'>Login</a>";
+                }else{
+                    $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+                }
+                echo $login;
+
+                
+            ?> 
         </div>
     </nav>
+
+<?php
+    $account_name = $_SESSION['username'];
+    $account_id = searchCurrentUser($account_name);
+    $query = queryTable($account_id);
+    $looping_tr = "";
+    $number = 0;
+    foreach ($query as $row) {
+        // $id = $row['order_id'];
+        // $user_id = $row['user_id'];
+        $product_id = $row ['product_id'];
+        $product_name = $row ['product_name'];
+        $product_price = $row ['product_price'];
+        $category_id = $row ['category_id'];
+        $uom_id = $row ['uom_id'];
+        $product_description = $row ['product_description'];
+        $image_path = $row ['image_path'];
+        $like_count = $row ['like_count'];
+        // if (file-exists($row['image_path'])) {
+        //     $image_path = "";
+        // }
+
+        $looping_tr .= "
+            <tr>
+                <td class='border product-data'>
+                    <div class='container'>
+                        <div class='row'>
+                            <div class='col'>
+                                <img src='$image_path'
+                                class='product-image' alt='$product_name'/>
+                            </div>
+                            <div class='col'>
+                                <span>$product_name</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                
+        ";
+
+    }
+?>
+
 
     <div>
             <div class='main-container'>
@@ -128,6 +317,9 @@
 
                 <div class="product-container">
                     <div class="product-detail">
+                    <?php 
+                        echo $product_name;
+                    ?>
                         <h1>Samsung Galaxy A53 5G</h1>
                         <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
                         <br><b style='font-size: xx-large;'>Rp6.000.000</b>
@@ -153,15 +345,41 @@
                                <form action="#">
                                   <div class="data">
                                      <label>Stock: 200</label>
-                                     <input type="text" required>
+                                     <div class="wrapper">
+                                     <span class="minus">-</span>
+                                     <span class="num">01</span>
+                                     <span class="plus">+</span>
+                                    </div>
+                                 <script>
+                                     const plus = document.querySelector(".plus"),
+                                     minus = document.querySelector(".minus"),
+                                     num = document.querySelector(".num");
+
+                                     let a = 1;
+                                     plus.addEventListener("click", ()=>{
+                                         a++;
+                                         a = (a < 10) ? "0" + a : a;
+                                         num.innerText = a;
+                                         console.log("a");
+                                        });
+
+                                        minus.addEventListener("click", ()=>{
+                                        if(a > 1){
+                                         a--;
+                                         a = (a < 10) ? "0" + a : a;
+                                         num.innerText = a;
+                                        }
+                                        });   
+                                 </script>
                                   </div>
                                   <div class="btn">
                                      <div class="inner"></div>
-                                     <button type="submit">Checkout</button>
+                                     <button type="submit">checkout</button>
                                   </div>
                                </form>
                             </div>
                          </div>
+                         <button class="btn btn-danger my-cart-btn" data-id="3" data-name="Samsung A53 5G" data-category="1" data-price="6000000" data-quantity="1" data-image="../static/img/Samsung A53 5G.png"> Add to cart</button>
                         <br>
 						<br>
                     </div>
