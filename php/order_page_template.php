@@ -54,6 +54,7 @@
         .product-container {
             padding-top: 15px;
             padding-left: 1080px;
+            height: 900px
         }
 
         .main-container {
