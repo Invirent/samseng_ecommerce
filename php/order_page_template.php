@@ -1,3 +1,7 @@
+<?php
+    require __DIR__ . '/../connect_database.php';
+    // include '../html/order_page.html';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +23,7 @@
         
         .carousel {
             width: 60%;
-            height: 50%;
+            height: 10%;
             float: left;
         }
         .carousel-inner {
@@ -29,8 +33,12 @@
             width: 860px;
             height: 480px;
             transition: opacity .6s ease;
-
         }
+
+        .carousel-indicators {
+            padding-top: 50px;
+        }
+
         .carousel-control-prev {
             height: 75%;
         }
@@ -40,155 +48,23 @@
         }
 
         .product-detail {
-            padding-bottom: 10px;
-			width: 900px;
-
+            padding-bottom: 30px;
         }
 
         .product-container {
-            padding-top: 15px;
-            padding-left: 1080px;
+            padding-top: 65px;
+            padding-left: 580px;
+            padding-bottom: 40px;
         }
-		.main-container{
-		width: 1460px;
-		}
-        *{
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-.show-btn{
-  background: #fff;
-  padding: 10px 20px;
-  font-size: 20px;
-  font-weight: 500;
-  color: #3498db;
-  cursor: pointer;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-}
-.show-btn, .container{
-  position: absolute;
-  top: 55%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-}
 
-input[type="checkbox"]{
-  display: none;
-}
-.container{
-  display: none;
-  background: #fff;
-  width: 410px;
-  padding: 30px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-}
-#show:checked ~ .container{
-  display: block;
-}
-.container .close-btn{
-  position: absolute;
-  right: 20px;
-  top: 15px;
-  font-size: 18px;
-  cursor: pointer;
-}
-.container .close-btn:hover{
-  color: #3498db;
-}
-.container .text{
-  font-size: 35px;
-  font-weight: 600;
-  text-align: center;
-}
-.container form{
-  margin-top: -20px;
-}
-.container form .data{
-  height: 45px;
-  width: 100%;
-  margin: 40px 0;
-}
-form .data label{
-  font-size: 18px;
-}
-form .data input{
-  height: 100%;
-  width: 100%;
-  padding-left: 10px;
-  font-size: 17px;
-  border: 1px solid silver;
-}
-form .data input:focus{
-  border-color: #3498db;
-  border-bottom-width: 2px;
-}
-form .btn{
-  margin: 30px 0;
-  height: 45px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-form .btn .inner{
-  height: 100%;
-  width: 300%;
-  position: absolute;
-  left: -100%;
-  z-index: -1;
-  background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
-  transition: all 0.4s;
-}
-form .btn:hover .inner{
-  left: 0;
-}
-form .btn button{
-  height: 100%;
-  width: 100%;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-
-}
-
-.wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-}
-
-.wrapper span{
-    width: 100%;
-    text-align: center;
-    font-size: 50px;
-    font-weight: 600;
-}
-
-.wrapper span.num{
-    font-size: 45px;
-    border-right: 2px solid rgba(0,0,0,0.2);
-    border-left: 2px solid rgba(0,0,0,0.2);
-}
-.btn-danger.my-cart-btn{
-    float: right;
-    margin-right: 500px;
-}
-.clear{
-    clear:both;
-}
-
-
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+        @media (max-width: 800px) {
+            .row {
+                flex-direction: column-reverse;
+            }
+            
+        }
     </style>
-
 </head>
 <body>
     <!-- Navbar -->
@@ -231,7 +107,7 @@ form .btn button{
                     </div>
                     <div class="carousel-inner">
                         <div class='carousel-item active'>
-                            <img src='../static/img/Samsung A53 5G.png' class='d-block w-100' alt='Samsung A53 5G'>
+                            <img src='../static/img/Samsung A53 5G.png' class='d-block w-100' alt='...'>
                         </div>
                         <div class='carousel-item'>
                             <img src='../static/img/Samsung A53 two.jpg' class='d-block w-100' alt='...'>
@@ -277,50 +153,21 @@ form .btn button{
                                <form action="#">
                                   <div class="data">
                                      <label>Stock: 200</label>
-                                     <div class="wrapper">
-                                     <span class="minus">-</span>
-                                     <span class="num">01</span>
-                                     <span class="plus">+</span>
-                                    </div>
-                                 <script>
-                                     const plus = document.querySelector(".plus"),
-                                     minus = document.querySelector(".minus"),
-                                     num = document.querySelector(".num");
-
-                                     let a = 1;
-                                     plus.addEventListener("click", ()=>{
-                                         a++;
-                                         a = (a < 10) ? "0" + a : a;
-                                         num.innerText = a;
-                                         console.log("a");
-                                        });
-
-                                        minus.addEventListener("click", ()=>{
-                                        if(a > 1){
-                                         a--;
-                                         a = (a < 10) ? "0" + a : a;
-                                         num.innerText = a;
-                                        }
-                                        });   
-                                 </script>
+                                     <input type="text" required>
                                   </div>
                                   <div class="btn">
                                      <div class="inner"></div>
-                                     <button type="submit">checkout</button>
+                                     <button type="submit">Checkout</button>
                                   </div>
                                </form>
                             </div>
                          </div>
-                         <button class="btn btn-danger my-cart-btn" data-id="3" data-name="Samsung A53 5G" data-category="1" data-price="6000000" data-quantity="1" data-image="../static/img/Samsung A53 5G.png"> Add to cart</button>
                         <br>
 						<br>
                     </div>
                 </div>
             </div>   
     </div>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="..//jquery.mycart.js"></script>
 
     <footer>
         <div class="container-fluid">
@@ -344,7 +191,4 @@ form .btn button{
             </div>
         </div>
     </footer>
-
-    
 </body>
-</html>
