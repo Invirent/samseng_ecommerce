@@ -65,10 +65,10 @@
             /* padding-top: 10px;
             padding-left: 20px;
             padding-bottom: 25px; */
-            width: 860px;
+            /* width: 860px;
             height: 300px;
             transition: opacity .4s ease;
-        } */
+        } */ */
 
         .product-container {
             padding-top: 15px;
@@ -220,6 +220,10 @@ form .btn button{
 .clear{
     clear:both;
 }
+.card-img-top{
+    height:480px;
+    width:850px;
+}
 
 
     </style>
@@ -280,9 +284,10 @@ form .btn button{
                     $product_id = $query[0]['product_id'];
                     $img_path = $query[0]['image_path'];
                     
-                    $html = "<div class='product-detail'>
+                    $html = "
                     
                         <img src='../static/img/$img_path' class='card-img-top' alt='...'>
+                        <div class='product-detail'>
                         <h1>$product_name</h1>
                         <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
                         <br><b style='font-size: xx-large;'>Rp. $product_price</b></br>
