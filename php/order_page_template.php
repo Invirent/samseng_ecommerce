@@ -323,6 +323,7 @@ form .btn button{
                     $product_price = $query[0]['product_price'];
                     $product_description = $query[0]['product_description'];
                     $product_id = $query[0]['product_id'];
+                    $img_path = $query[0]['image_path'];
 
                     $html = "<div class='product-detail'>
                         <h1>$product_name</h1>
