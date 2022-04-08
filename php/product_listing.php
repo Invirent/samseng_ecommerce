@@ -86,12 +86,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="shopping_cart.php"><i class="fa fa-shopping-cart"></i>Cart</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="order_page_template.php"><i class="fa fa-order-page"></i>Order Page</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
-                    </li> -->
                 </ul>
             </div>
 <?php
@@ -100,6 +94,9 @@
         <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
     }else{
         $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+        if (($_SESSION['role'] == 'admin')) {
+            $upload = "<a href='upload_product.php'>Upload Product</a>";
+        }
     }
     echo $login;
 ?> 
@@ -156,6 +153,7 @@
         $product = $product_id['product_id'];
         $category_name = $product_id['category_name'];
         $html = "
+
         <div class='card mr-2 ml-2' style='width: 16rem;'>
             <img src='../static/img/$img_path' class='card-img-top' alt='...'>
             <div class='card-body bg-light'>
