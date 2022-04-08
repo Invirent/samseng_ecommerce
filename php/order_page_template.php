@@ -35,14 +35,24 @@
             height: 480px;
             transition: opacity .6s ease;
         }
+        .carousel-inner1 {
+            /* padding-top: 10px;
+            padding-left: 20px;
+            padding-bottom: 25px; */
+            width: 860px;
+            height: 300px;
+            transition: opacity .4s ease;
+        }
 
         .carousel-control-prev {
             height: 75%;
+            width:10%;
         }
 
         .carousel-control-next {
             padding-right: 10px;
             height: 75%;
+            width:10%;
         }
 
         .product-detail {
@@ -54,7 +64,7 @@
         .product-container {
             padding-top: 15px;
             padding-left: 1080px;
-            height: 900px
+            height: 900px;
         }
 
         .main-container {
@@ -190,11 +200,19 @@ form .btn button{
 .btn-danger.my-cart-btn{
     float: right;
     margin-right: 200px;
-    margin-top:103px;
+    margin-top:100px;
 }
 .clear{
     clear:both;
-}        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top)
+} 
+.promotion{
+		
+			height:900px;
+			margin-top:-30px;
+			margin-left:-1060px;
+			width:1650px;
+		}
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top)
         @media (max-width: 800px) {
             .row {
                 flex-direction: column-reverse;
@@ -394,6 +412,7 @@ form .btn button{
                         <br>
 						<br>
                     </div>
+                    <div class="promotion">
                     <div class="col-md-10">
                     <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators1">
@@ -422,11 +441,11 @@ form .btn button{
                     </div>
                 </div>
                 </div>
+                    </div>
                 
             </div>   
     </div>
-    
-    
+
     <footer>
         <div class="container-fluid">
             <div class="row">
