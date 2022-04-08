@@ -33,43 +33,42 @@
             background-color: rgb(240, 210, 45);
         }
         
-        .carousel {
+        /* .carousel {
             width: 60%;
             height: 50%;
             float: left;
-        }
-        .carousel-inner {
+        } */
+        /* .carousel-inner {
             padding-top: 10px;
             padding-left: 20px;
             padding-bottom: 25px;
             width: 860px;
             height: 480px;
             transition: opacity .6s ease;
-
-        }
-        .carousel-control-prev {
+        } */
+        /* .carousel-control-prev {
             height: 75%;
             width:10%;
-        }
+        } */
 
-        .carousel-control-next {
+        /* .carousel-control-next {
             padding-right: 10px;
             height: 75%;
             width:10%;
-        }
+        } */
 
-        .product-detail {
+        /* .product-detail {
             padding-bottom: 10px;
 			width: 900px;
-        }
-        .carousel-inner1 {
+        } */
+        /* .carousel-inner1 {
             /* padding-top: 10px;
             padding-left: 20px;
             padding-bottom: 25px; */
             width: 860px;
             height: 300px;
             transition: opacity .4s ease;
-        }
+        } */
 
         .product-container {
             padding-top: 15px;
@@ -283,7 +282,7 @@ form .btn button{
                     
                     $html = "<div class='product-detail'>
                     
-                        <img src='../static/img/Samsung Z3 Fold 5G' class='card-img-top' alt='...'>
+                        <img src='../static/img/$img_path' class='card-img-top' alt='...'>
                         <h1>$product_name</h1>
                         <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
                         <br><b style='font-size: xx-large;'>Rp. $product_price</b></br>
@@ -304,8 +303,8 @@ form .btn button{
             </div>   
     </div>
 
-    <div>
-        <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
+    <!-- <div> -->
+        <!-- <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
             <div class='carousel-indicators'>
                 <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
                 <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
@@ -351,7 +350,7 @@ form .btn button{
                 </button>
                 </div>
 					</div>
-    </div>
+    </div> -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="..//jquery.mycart.js"></script>
