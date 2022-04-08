@@ -1,7 +1,14 @@
 <?php
     require __DIR__ . '/../connect_database.php';
     session_start();
-    function queryProductTemplate() {
+
+    if (isset($_GET['search'])) {
+        $search = "WHERE product_template.name LIKE '%".$_GET['search']."%'";
+    }else{
+        $search = "";
+    }
+
+    function queryProductTemplate($search) {
         $connect = connectLocalDb();
         $sql = "
         SELECT  
@@ -11,7 +18,8 @@
             product_template.image_path as image_url,
             product_category.name as category_name
         FROM product_template
-        LEFT JOIN product_category ON product_template.category_id = product_category.id";
+        LEFT JOIN product_category ON product_template.category_id = product_category.id
+        $search";
         $result = mysqli_query($connect, $sql);
         $product_template = [];
         while($row = mysqli_fetch_assoc($result)) {
@@ -63,6 +71,26 @@
             box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
             transform: scale(1.02);
         }
+        form {
+  background-color: orange;
+  width: 300px;
+  height: 44px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+    ::placeholder{
+        color: orange;
+        opacity: 0.7;
+    }
+    button{
+color: white;
+margin-left: 20px;
+background: black;
+border-radius: 1px;
+    }
     </style>
 </head>
 <body>
@@ -86,12 +114,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="shopping_cart.php"><i class="fa fa-shopping-cart"></i>Cart</a>
                     </li>
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="order_page_template.php"><i class="fa fa-order-page"></i>Order Page</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
-                    </li> -->
+                    </li>
+                    <li class="nav-item">
+                    <form id="form" method="GET" action="product_listing.php">
+                    <input type="text" id="search" name="search"
+                    placeholder="Search product.."
+                     aria-label="Search through site content">
+                    <input type="submit" value="Search">
+                    </form>
+                    </li>
                 </ul>
             </div>
 <?php
@@ -100,6 +136,9 @@
         <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
     }else{
         $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+        if (($_SESSION['role'] == 'admin')) {
+            $upload = "<a href='upload_product.php'>Upload Product</a>";
+        }
     }
     echo $login;
 ?> 
@@ -148,7 +187,7 @@
             <h4 class="text-center font-weight-bold">Produk - Produk Elektronik</h4>
             <div class="row mx-auto">
 <?php
-    $product_ids = queryProductTemplate();
+    $product_ids = queryProductTemplate($search);
     foreach($product_ids as $product_id) {
         $img_path = $product_id['image_url'];
         $product_name = $product_id['product_name'];
@@ -156,6 +195,7 @@
         $product = $product_id['product_id'];
         $category_name = $product_id['category_name'];
         $html = "
+
         <div class='card mr-2 ml-2' style='width: 16rem;'>
             <img src='../static/img/$img_path' class='card-img-top' alt='...'>
             <div class='card-body bg-light'>
