@@ -63,6 +63,26 @@
             box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
             transform: scale(1.02);
         }
+        form {
+  background-color: orange;
+  width: 300px;
+  height: 44px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+    ::placeholder{
+        color: orange;
+        opacity: 0.7;
+    }
+    button{
+color: white;
+margin-left: 20px;
+background: black;
+border-radius: 3px;
+    }
     </style>
 </head>
 <body>
@@ -91,6 +111,14 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
+                    </li>
+                    <li class="nav-item">
+                    <form id="form" role="search">
+                    <input type="search" id="query" name="q"
+                    placeholder="Search product.."
+                     aria-label="Search through site content">
+                    <button>Search</button>
+                    </form>
                     </li>
                 </ul>
             </div>
