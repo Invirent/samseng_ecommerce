@@ -324,8 +324,10 @@ form .btn button{
                     $product_description = $query[0]['product_description'];
                     $product_id = $query[0]['product_id'];
                     $img_path = $query[0]['image_path'];
-
+                    
                     $html = "<div class='product-detail'>
+                    
+                        <img src='../static/img/Samsung Z3 Fold 5G' class='card-img-top' alt='...'>
                         <h1>$product_name</h1>
                         <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
                         <br><b style='font-size: xx-large;'>Rp. $product_price</b></br>
