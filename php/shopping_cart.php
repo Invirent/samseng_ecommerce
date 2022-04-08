@@ -31,16 +31,6 @@
         ";
         return $sql;
     }
-    
-    function searchCurrentUser($username){
-        $sql = "
-            SELECT login.id as user_id
-            FROM user_login login
-            WHERE login.username = '$username'
-            LIMIT 1
-        ";
-        return $sql;
-    }
 
     function queryTable(){
         $connect = connectLocalDb();

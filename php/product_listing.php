@@ -167,66 +167,16 @@
                 <i class='fa fa-star-half text-success'></i>
                 <i class='fa fa-star-o text-success'></i>
                 <br>
-                <a href='#' class='btn btn-primary'>Detail</a>
-                <a href='#' class='btn btn-danger'>Rp. $product_price</a>
+                <a href='order_page_template.php?product_id=$product' 
+                class='btn btn-primary'>Detail</a>
+                <a href='order_page_template.php?product_id=$product' 
+                class='btn btn-danger'>Rp. $product_price</a>
             </div>
         </div>
         ";
         echo $html;
-    }
-
-            
-                
-
-            //     <div class="card mr-2 ml-2" style="width: 16rem;">
-            //         <img src="../static/img/ASUS ProArt Display PA278QV Professional Monitor.jpg" class="card-img-top" alt="...">
-            //         <div class="card-body bg-light">
-            //             <h5 class="card-title">Asus ProArt Display</h5>
-            //             <p class="card-text">Monitor</p>
-            //             <i class="fa fa-star text-success"></i>
-            //             <i class="fa fa-star text-success"></i>
-            //             <i class="fa fa-star text-success"></i>
-            //             <i class="fa fa-star text-success"></i>
-            //             <i class="fa fa-star-half text-success"></i>
-            //             <br>
-            //             <a href="#" class="btn btn-primary">Checkout</a>
-            //             <a href="#" class="btn btn-danger">Rp 4.000.000</a>
-            //         </div>
-            //     </div>
-
-            //     <div class="card mr-2 ml-2" style="width: 16rem;">
-            //         <img src="../static/img/BESPOKE Bottom Freeze Refrigerator 350L.jpg" class="card-img-top" alt="...">
-            //         <div class="card-body bg-light">
-            //             <h5 class="card-title">BESPOKE Refrigerator</h5>
-            //             <p class="card-text">Kulkas</p>
-            //             <i class="fa fa-star text-success"></i>
-            //             <i class="fa fa-star text-success"></i>
-            //             <i class="fa fa-star text-success"></i>
-            //             <i class="fa fa-star text-success"></i>
-            //             <i class="fa fa-star-o text-success"></i>
-            //             <br>
-            //             <a href="#" class="btn btn-primary">Checkout</a>
-            //             <a href="#" class="btn btn-danger">Rp 16.500.000</a>
-            //         </div>
-            //     </div>
-
-            //     <div class="card mr-2 ml-2" style="width: 16rem;">
-            //         <img src="../static/img/LG 22MN430M-B 21.5 FHD IPS Monitor.jpg" class="card-img-top" alt="...">
-            //         <div class="card-body bg-light">
-            //             <h5 class="card-title">LG 22MN430M-B 21.5 FHD IPS</h5>
-            //             <p class="card-text">Monitor</p>
-            //             <i class="fa fa-star text-success"></i>
-            //             <i class="fa fa-star text-success"></i>
-            //             <i class="fa fa-star text-success"></i>
-            //             <i class="fa fa-star-o text-success"></i>
-            //             <i class="fa fa-star-o text-success"></i>
-            //             <br>
-            //             <a href="#" class="btn btn-primary">Checkout</a>
-            //             <a href="#" class="btn btn-danger">Rp 1.900.000</a>
-            //         </div>
-            //     </div>
-                              
-            ?>
+    }              
+?>
             </div>
         </div>
     </div> 

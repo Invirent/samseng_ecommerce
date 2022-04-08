@@ -3,7 +3,7 @@
 
     require __DIR__ . '/../connect_database.php';
     
-    function queryProduct($user_id) {
+    function queryProduct($product_id) {
         $sql = "
         SELECT
             product_template.id as product_id,
@@ -15,7 +15,7 @@
             product_template.image_path as image_path,
             product_template.like_count as like_count
         FROM product_template
-        WHERE product_template.id = 1
+        WHERE product_template.id = $product_id
         ";
         return $sql;
     }
@@ -30,7 +30,7 @@
         return $sql;
     }
 
-    function queryTable() {
+    function queryTable($product_id) {
         $connect = connectLocalDb();
 
         $username = $_SESSION['username'];
@@ -41,8 +41,7 @@
             $user_id = $user['user_id'];
             break;
         }
-        $condition = "WHERE cart.customer_id = $user_id";
-        $query = queryProduct($condition);
+        $query = queryProduct($product_id);
         $product_order = [];
         $result = mysqli_query($connect,$query);
         while ($row = mysqli_fetch_assoc($result)) {
