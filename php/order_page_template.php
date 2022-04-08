@@ -247,7 +247,10 @@ form .btn button{
 <?php
     $account_name = $_SESSION['username'];
     $account_id = searchCurrentUser($account_name);
-    $query = queryTable($account_id);
+
+    $product_id = $_GET('product_id');
+
+    $query = queryTable($product_id);
     $looping_tr = "";
     $number = 0;
     foreach ($query as $row) {
