@@ -111,7 +111,6 @@ border-radius: 3px;
                     </li> -->
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
-<<<<<<< HEAD
                     </li>
                     <li class="nav-item">
                     <form id="form" role="search">
@@ -121,9 +120,6 @@ border-radius: 3px;
                     <button>Search</button>
                     </form>
                     </li>
-=======
-                    </li> -->
->>>>>>> dc25d3784085e4afdf46abb2f5bf3a95c15cb71b
                 </ul>
             </div>
 <?php
