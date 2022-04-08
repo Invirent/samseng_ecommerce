@@ -81,7 +81,7 @@
 color: white;
 margin-left: 20px;
 background: black;
-border-radius: 3px;
+border-radius: 1px;
     }
     </style>
 </head>
@@ -106,10 +106,10 @@ border-radius: 3px;
                     <li class="nav-item">
                         <a class="nav-link" href="shopping_cart.php"><i class="fa fa-shopping-cart"></i>Cart</a>
                     </li>
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="order_page_template.php"><i class="fa fa-order-page"></i>Order Page</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
                     </li>
                     <li class="nav-item">
