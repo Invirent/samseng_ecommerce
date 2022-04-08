@@ -1,8 +1,19 @@
 <?php
-    // require __DIR__ . '/../connect_database.php';
     require __DIR__ . '/order_page.php';
-    // include '../html/order_page.html';
+    $product_id = $_GET['product_id'];
+    $query = queryTable($product_id);
+    $connect = connectLocalDb();
+
+    $username = $_SESSION['username'];
+    $search_user = searchCurrentUser($username);
+    $user_query = mysqli_query($connect,$search_user);
+    $user_id = 0;
+    foreach ($user_query as $user){
+        $user_id = $user['user_id'];
+        break;
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +35,7 @@
         
         .carousel {
             width: 60%;
-            height: 10%;
+            height: 50%;
             float: left;
         }
         .carousel-inner {
@@ -34,50 +45,46 @@
             width: 860px;
             height: 480px;
             transition: opacity .6s ease;
-        }
-        .carousel-inner1 {
-            /* padding-top: 10px;
-            padding-left: 20px;
-            padding-bottom: 25px; */
-            width: 860px;
-            height: 300px;
-            transition: opacity .4s ease;
-        }
 
+        }
         .carousel-control-prev {
             height: 75%;
-            width:10%;
         }
-
         .carousel-control-next {
             padding-right: 10px;
             height: 75%;
-            width:10%;
         }
 
         .product-detail {
             padding-bottom: 10px;
-            width: 500px;
-            height: 500px;
+			width: 900px;
+
         }
 
         .product-container {
             padding-top: 15px;
             padding-left: 1080px;
-            height: 900px;
+			width:500px;
+			height: 900px;
         }
-
-        .main-container {
-		    width: 1460px;
+		.main-container{
+		width: 1460px;
+		height: 900px;
+		}
+		.promotion{
+			float: left;
+			height:900px;
+			margin-top:500px;
+			margin-left:-1080px;
+			width:750px;
 		}
         *{
-            margin: 0;
-            padding: 0;
-            outline: none;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 .show-btn{
   background: #fff;
   padding: 10px 20px;
@@ -199,27 +206,15 @@ form .btn button{
 }
 .btn-danger.my-cart-btn{
     float: right;
-    margin-right: 200px;
-    margin-top:100px;
+    margin-right: 500px;
 }
 .clear{
     clear:both;
-} 
-.promotion{
-		
-			height:900px;
-			margin-top:-30px;
-			margin-left:-1060px;
-			width:1650px;
-		}
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top)
-        @media (max-width: 800px) {
-            .row {
-                flex-direction: column-reverse;
-            }
-            
-        } */
+}
+
+
     </style>
+
 </head>
 <body>
     <!-- Navbar -->
@@ -262,49 +257,6 @@ form .btn button{
         </div>
     </nav>
 
-<?php
-    $account_name = $_SESSION['username'];
-    $account_id = searchCurrentUser($account_name);
-    $query = queryTable($account_id);
-    $looping_tr = "";
-    $number = 0;
-    foreach ($query as $row) {
-        // $id = $row['order_id'];
-        // $user_id = $row['user_id'];
-        $product_id = $row ['product_id'];
-        $product_name = $row ['product_name'];
-        $product_price = $row ['product_price'];
-        $category_id = $row ['category_id'];
-        $uom_id = $row ['uom_id'];
-        $product_description = $row ['product_description'];
-        $image_path = $row ['image_path'];
-        $like_count = $row ['like_count'];
-        // if (file-exists($row['image_path'])) {
-        //     $image_path = "";
-        // }
-
-        $looping_tr .= "
-            <tr>
-                <td class='border product-data'>
-                    <div class='container'>
-                        <div class='row'>
-                            <div class='col'>
-                                <img src='$image_path'
-                                class='product-image' alt='$product_name'/>
-                            </div>
-                            <div class='col'>
-                                <span>$product_name</span>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                
-        ";
-
-    }
-?>
-
-
     <div>
             <div class='main-container'>
                 <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
@@ -315,7 +267,7 @@ form .btn button{
                     </div>
                     <div class="carousel-inner">
                         <div class='carousel-item active'>
-                            <img src='../static/img/Samsung A53 5G.png' class='d-block w-100' alt='...'>
+                            <img src='../static/img/Samsung A53 5G.png' class='d-block w-100' alt='Samsung A53 5G'>
                         </div>
                         <div class='carousel-item'>
                             <img src='../static/img/Samsung A53 two.jpg' class='d-block w-100' alt='...'>
@@ -335,114 +287,57 @@ form .btn button{
                 </div>
 
                 <div class="product-container">
-                    <div class="product-detail">
+					<div class="promotion">
+					<div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="../static/img/AC.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../static/img/Promo_Gajian.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../static/img/Galaxy_A53.jpg" class="d-block w-100" alt="...">
+                  </div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+					</div>
+                    <?php
+                    $product_name = $query[0]['product_name'];
+                    $product_price = $query[0]['product_price'];
+                    $product_description = $query[0]['product_description'];
+                    $product_id = $query[0]['product_id'];
+                    $img_path = $query[0]['image_path'];
 
-                        <h1> <?php 
-                        echo $product_name;
-                    ?></h1>
-                    <b style='color: grey;'>Disukai <?php 
-                        echo $like_count;
-                    ?></b>
-                        <br><b style='font-size: xx-large;'>Rp <?php 
-                        echo $product_price;
-                    ?></b>
-                        <br><a><?php 
-                        echo $product_description;
-                    ?></a>
-                        <!-- <br><br><b>Garansi Resmi Samsung Indonesia</b>
-                        <br><a>Processor: Exynos 1280</a>
-                        <br><a>Display: Super AMOLED, 120Hz, 800 nits (HBM)</a>
-                        <br><a>Main Camera: 64 MP, f/1.8, 26mm (wide), 1/1.7X, 0.8µm, PDAF, OIS</a>
-                        <br><a>Selfie Camera: 32 MP, f/2.2, 26mm (wide), 1/2.8, 0.8µm</a>
-                        <br><a>RAM: 8GB</a>
-                        <br><a>Internal Storage: 128GB</a>
-                        <br><a>Network: 5G</a>
-                        <br><a>Battery Capacity: 5.000mAh</a>
-                        <br><a>Water Resistant: IP67 dust/water resistant (up to 1m for 30 mins)</a> -->
+                    $html = "<div class='product-detail'>
+                        <h1>$product_name</h1>
+                        <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
+                        <br><b style='font-size: xx-large;'>Rp. $product_price</b>
+                        $product_description
                         <hr>
-                        <div class="center">
-                            <input type="checkbox" id="show">
-                            <label for="show" class="show-btn">Buy Now</label>
-                            <div class="container">
-                               <label for="show" class="close-btn fas fa-times" title="close"></label>
-                               <div class="text">
-                                  select quantity
-                               </div>
-                               <form action="#">
-                                  <div class="data">
-                                     <label>Stock: 200</label>
-                                     <div class="wrapper">
-                                     <span class="minus">-</span>
-                                     <span class="num">01</span>
-                                     <span class="plus">+</span>
-                                    </div>
-                                 <script>
-                                     const plus = document.querySelector(".plus"),
-                                     minus = document.querySelector(".minus"),
-                                     num = document.querySelector(".num");
-
-                                     let a = 1;
-                                     plus.addEventListener("click", ()=>{
-                                         a++;
-                                         a = (a < 10) ? "0" + a : a;
-                                         num.innerText = a;
-                                         console.log("a");
-                                        });
-
-                                        minus.addEventListener("click", ()=>{
-                                        if(a > 1){
-                                         a--;
-                                         a = (a < 10) ? "0" + a : a;
-                                         num.innerText = a;
-                                        }
-                                        });   
-                                 </script>
-                                  </div>
-                                  <div class="btn">
-                                     <div class="inner"></div>
-                                     <button type="submit">checkout</button>
-                                  </div>
-                               </form>
-                            </div>
-                         </div>
-                         <button class="btn btn-danger my-cart-btn" data-id="3" data-name="Samsung A53 5G" data-category="1" data-price="6000000" data-quantity="1" data-image="../static/img/Samsung A53 5G.png"> Add to cart</button>
+                        <form action='add_to_cart.php' method='get' name='add_to_cart'>
+                        <input type='hidden' name='product_id' value='$product_id'>
+                        <input type='hidden' name='customer_id' value='$user_id'>
+                        <input type='submit' name='submit' value='submit'>
+                        </form>
                         <br>
 						<br>
-                    </div>
-                    <div class="promotion">
-                    <div class="col-md-10">
-                    <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators1">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                    <div class="carousel-inner1">
-                        <div class="carousel-item active">
-                            <img src="../static/img/AC.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../static/img/Promo_Gajian.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../static/img/Galaxy_A53.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
+                    </div>";
+                    echo $html;
+                    ?>
                 </div>
-                </div>
-                    </div>
-                
-            </div>
 
+            </div>   
     </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="..//jquery.mycart.js"></script>
 
     <footer>
         <div class="container-fluid">
@@ -466,4 +361,7 @@ form .btn button{
             </div>
         </div>
     </footer>
+
+    
 </body>
+</html>
