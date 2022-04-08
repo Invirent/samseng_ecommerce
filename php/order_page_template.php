@@ -68,133 +68,163 @@
             font-family: 'Poppins', sans-serif;
         }
 
-.show-btn{
-  background: #fff;
-  padding: 10px 20px;
-  font-size: 20px;
-  font-weight: 500;
-  color: #3498db;
-  cursor: pointer;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-}
-.show-btn, .container{
-  position: absolute;
-  top: 55%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-}
+        .carousel1 {
+            width: 100%;
+        }
+        /* .second-container {
+            width: 100%;
+        }
 
-input[type="checkbox"]{
-  display: none;
-}
-.container{
-  display: none;
-  background: #fff;
-  width: 410px;
-  padding: 30px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-}
-#show:checked ~ .container{
-  display: block;
-}
-.container .close-btn{
-  position: absolute;
-  right: 20px;
-  top: 15px;
-  font-size: 18px;
-  cursor: pointer;
-}
-.container .close-btn:hover{
-  color: #3498db;
-}
-.container .text{
-  font-size: 35px;
-  font-weight: 600;
-  text-align: center;
-}
-.container form{
-  margin-top: -20px;
-}
-.container form .data{
-  height: 45px;
-  width: 100%;
-  margin: 40px 0;
-}
-form .data label{
-  font-size: 18px;
-}
-form .data input{
-  height: 100%;
-  width: 100%;
-  padding-left: 10px;
-  font-size: 17px;
-  border: 1px solid silver;
-}
-form .data input:focus{
-  border-color: #3498db;
-  border-bottom-width: 2px;
-}
-form .btn{
-  margin: 30px 0;
-  height: 45px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-form .btn .inner{
-  height: 100%;
-  width: 300%;
-  position: absolute;
-  left: -100%;
-  z-index: -1;
-  background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
-  transition: all 0.4s;
-}
-form .btn:hover .inner{
-  left: 0;
-}
-form .btn button{
-  height: 100%;
-  width: 100%;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
+        .carousel-indicators1 {
+            width: 100%;
+            height: 100%;
+        } */
 
-}
+        .show-btn{
+            background: #fff;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #3498db;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
 
-.wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-}
+        .show-btn, .container{
+            position: absolute;
+            top: 55%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+        }
 
-.wrapper span{
-    width: 100%;
-    text-align: center;
-    font-size: 50px;
-    font-weight: 600;
-}
+        input[type="checkbox"]{
+            display: none;
+        }
 
-.wrapper span.num{
-    font-size: 45px;
-    border-right: 2px solid rgba(0,0,0,0.2);
-    border-left: 2px solid rgba(0,0,0,0.2);
-}
-.btn-danger.my-cart-btn{
-    float: right;
-    margin-right: 200px;
-    margin-top:103px;
-}
-.clear{
-    clear:both;
-}        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top)
+        .container{
+            display: none;
+             background: #fff;
+            width: 410px;
+            padding: 30px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+
+        #show:checked ~ .container{
+            display: block;
+        }
+
+        .container .close-btn{
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 18px;
+            ursor: pointer;
+        }
+
+        .container .close-btn:hover{
+            color: #3498db;
+        }
+
+        .container .text{
+            font-size: 35px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .container form{
+            margin-top: -20px;
+        }
+
+        .container form .data{
+            height: 45px;
+            width: 100%;
+            margin: 40px 0;
+        }
+
+        form .data label{
+            font-size: 18px;
+        }
+
+        form .data input{
+            height: 100%;
+            width: 100%;
+            padding-left: 10px;
+            font-size: 17px;
+            border: 1px solid silver;
+        }
+
+        form .data input:focus{
+            border-color: #3498db;
+            border-bottom-width: 2px;
+        }
+        
+        form .btn{
+            margin: 30px 0;
+            height: 45px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        form .btn .inner{
+            height: 100%;
+            width: 300%;
+            position: absolute;
+            left: -100%;
+            z-index: -1;
+            background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+            transition: all 0.4s;
+        }
+
+        form .btn:hover .inner{
+            left: 0;
+        }
+
+        form .btn button{
+            height: 100%;
+            width: 100%;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .wrapper{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+
+        .wrapper span{
+            width: 100%;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 600;
+        }
+
+        .wrapper span.num{
+            font-size: 45px;
+            border-right: 2px solid rgba(0,0,0,0.2);
+            border-left: 2px solid rgba(0,0,0,0.2);
+        }
+
+        .btn-danger.my-cart-btn{
+            float: right;
+            margin-right: 200px;
+            margin-top:103px;
+        }
+
+        .clear{
+            clear:both;
+        }        
+        
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top)
         @media (max-width: 800px) {
             .row {
                 flex-direction: column-reverse;
@@ -390,38 +420,41 @@ form .btn button{
                          <button class="btn btn-danger my-cart-btn" data-id="3" data-name="Samsung A53 5G" data-category="1" data-price="6000000" data-quantity="1" data-image="../static/img/Samsung A53 5G.png"> Add to cart</button>
                         <br>
 						<br>
-                    </div>
-                    <div class="col-md-10">
-                    <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators1">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                    <div class="carousel-inner1">
-                        <div class="carousel-item active">
-                            <img src="../static/img/AC.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../static/img/Promo_Gajian.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../static/img/Galaxy_A53.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
                 </div>
                 
+            </div>
+            <div class='second-container'>
+                    <div class="col-md-100">
+                        <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel1">
+                            <div class="carousel-indicators1">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner1">
+                                <div class="carousel-item active">
+                                    <img src="../static/img/AC.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../static/img/Promo_Gajian.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../static/img/Galaxy_A53.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
             </div>   
     </div>
+
     
     
     <footer>
