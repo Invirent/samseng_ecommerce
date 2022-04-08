@@ -2,6 +2,16 @@
     require __DIR__ . '/order_page.php';
     $product_id = $_GET['product_id'];
     $query = queryTable($product_id);
+    $connect = connectLocalDb();
+
+    $username = $_SESSION['username'];
+    $search_user = searchCurrentUser($username);
+    $user_query = mysqli_query($connect,$search_user);
+    $user_id = 0;
+    foreach ($user_query as $user){
+        $user_id = $user['user_id'];
+        break;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -302,6 +312,7 @@ form .btn button{
                     $product_name = $query[0]['product_name'];
                     $product_price = $query[0]['product_price'];
                     $product_description = $query[0]['product_description'];
+                    $product_id = $query[0]['product_id'];
 
                     $html = "<div class='product-detail'>
                         <h1>$product_name</h1>
@@ -309,53 +320,11 @@ form .btn button{
                         <br><b style='font-size: xx-large;'>Rp. $product_price</b>
                         $product_description
                         <hr>
-                        <div class='center'>
-                            <input type='hidden' id='product_id' name='product_id' value='$product_id'>
-                            <input type='checkbox' id='show'>
-                            <label for='show' class='show-btn'>Buy Now</label>
-                            <div class='container'>
-                               <label for='show' class='close-btn fas fa-times' title='close'></label>
-                               <div class='text'>
-                                  select quantity
-                               </div>
-                               <form action='#'>
-                                  <div class='data'>
-                                     <label>Stock: 200</label>
-                                     <div class='wrapper'>
-                                     <span class='minus'>-</span>
-                                     <span class='num'>01</span>
-                                     <span class='plus'>+</span>
-                                    </div>
-                                 <script>
-                                     const plus = document.querySelector('.plus'),
-                                     minus = document.querySelector('.minus'),
-                                     num = document.querySelector('.num');
-
-                                     let a = 1;
-                                     plus.addEventListener('click', ()=>{
-                                         a++;
-                                         a = (a < 10) ? '0' + a : a;
-                                         num.innerText = a;
-                                         console.log('a');
-                                        });
-
-                                        minus.addEventListener('click', ()=>{
-                                        if(a > 1){
-                                         a--;
-                                         a = (a < 10) ? '0' + a : a;
-                                         num.innerText = a;
-                                        }
-                                        });   
-                                 </script>
-                                  </div>
-                                  <div class='btn'>
-                                     <div class='inner'></div>
-                                     <button type='submit'>checkout</button>
-                                  </div>
-                               </form>
-                            </div>
-                         </div>
-                         <button class='btn btn-danger my-cart-btn' data-id='3' data-name='Samsung A53 5G' data-category='1' data-price='6000000' data-quantity='1' data-image='../static/img/Samsung A53 5G.png'> Add to cart</button>
+                        <form action='add_to_cart.php' method='get' name='add_to_cart'>
+                        <input type='hidden' name='product_id' value='$product_id'>
+                        <input type='hidden' name='customer_id' value='$user_id'>
+                        <input type='submit' name='submit' value='submit'>
+                        </form>
                         <br>
 						<br>
                     </div>";
