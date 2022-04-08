@@ -81,7 +81,7 @@
 color: white;
 margin-left: 20px;
 background: black;
-border-radius: 3px;
+border-radius: 1px;
     }
     </style>
 </head>
@@ -106,12 +106,11 @@ border-radius: 3px;
                     <li class="nav-item">
                         <a class="nav-link" href="shopping_cart.php"><i class="fa fa-shopping-cart"></i>Cart</a>
                     </li>
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="order_page_template.php"><i class="fa fa-order-page"></i>Order Page</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
-<<<<<<< HEAD
                     </li>
                     <li class="nav-item">
                     <form id="form" role="search">
@@ -121,9 +120,6 @@ border-radius: 3px;
                     <button>Search</button>
                     </form>
                     </li>
-=======
-                    </li> -->
->>>>>>> dc25d3784085e4afdf46abb2f5bf3a95c15cb71b
                 </ul>
             </div>
 <?php
