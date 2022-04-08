@@ -49,16 +49,26 @@
         }
         .carousel-control-prev {
             height: 75%;
+            width:10%;
         }
+
         .carousel-control-next {
             padding-right: 10px;
             height: 75%;
+            width:10%;
         }
 
         .product-detail {
             padding-bottom: 10px;
 			width: 900px;
-
+        }
+        .carousel-inner1 {
+            /* padding-top: 10px;
+            padding-left: 20px;
+            padding-bottom: 25px; */
+            width: 860px;
+            height: 300px;
+            transition: opacity .4s ease;
         }
 
         .product-container {
@@ -235,7 +245,7 @@ form .btn button{
                         <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="php/shopping_cart.php"><i class="fa fa-shopping-cart"></i>Cart</a>
+                        <a class="nav-link" href="shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
@@ -288,7 +298,7 @@ form .btn button{
 
                 <div class="product-container">
 					<div class="promotion">
-					<div class="carousel-inner">
+					<div class="carousel-inner1">
                   <div class="carousel-item active">
                     <img src="../static/img/AC.jpg" class="d-block w-100" alt="...">
                   </div>
@@ -318,13 +328,13 @@ form .btn button{
                     $html = "<div class='product-detail'>
                         <h1>$product_name</h1>
                         <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
-                        <br><b style='font-size: xx-large;'>Rp. $product_price</b>
+                        <br><b style='font-size: xx-large;'>Rp. $product_price</b></br>
                         $product_description
                         <hr>
                         <form action='add_to_cart.php' method='get' name='add_to_cart'>
                         <input type='hidden' name='product_id' value='$product_id'>
                         <input type='hidden' name='customer_id' value='$user_id'>
-                        <input type='submit' name='submit' value='submit'>
+                        <input type='submit' name='submit' value='Buy'>
                         </form>
                         <br>
 						<br>
