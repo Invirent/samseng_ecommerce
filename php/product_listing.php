@@ -86,10 +86,9 @@
         opacity: 0.7;
     }
     button{
-color: white;
-margin-left: 20px;
-background: black;
-border-radius: 1px;
+margin-left: 30px;
+background: yellow;
+
     }
     </style>
 </head>
@@ -106,7 +105,7 @@ border-radius: 1px;
             <div class="collapse navbar-collapse" id="navbar_content">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
@@ -120,14 +119,7 @@ border-radius: 1px;
                     <li class="nav-item">
                         <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
                     </li>
-                    <li class="nav-item">
-                    <form id="form" method="GET" action="product_listing.php">
-                    <input type="text" id="search" name="search"
-                    placeholder="Search product.."
-                     aria-label="Search through site content">
-                    <input type="submit" value="Search">
-                    </form>
-                    </li>
+                    
                 </ul>
             </div>
 <?php
@@ -159,6 +151,15 @@ border-radius: 1px;
                 <li class="list-group-item"><i class="fa fa-angle-right"></i> AC</li>
                 <li class="list-group-item"><i class="fa fa-angle-right"></i> Kulkas</li>
             </ul>
+            <li class="nav-item">
+                    <form id="form" method="GET" action="product_listing.php">
+                    <input type="text" id="search" name="search"
+                    placeholder="Search product.."
+                     aria-label="Search through site content">
+                     <button>
+                    <input type="submit" value="Search"></button>
+                    </form>
+                    </li>
         </div>
         <div class="col-md-10">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

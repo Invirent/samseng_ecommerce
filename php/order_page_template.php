@@ -269,13 +269,49 @@ form .btn button{
 
     <div>
             <div class='main-container'>
-                <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
-                    <div class='carousel-indicators'>
-                        <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
-                        <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
-                        <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
-                    </div>
-                    <div class="carousel-inner">
+                <div>
+                </div>
+
+            <div class="product-container">
+                
+                    <?php
+                    $product_name = $query[0]['product_name'];
+                    $product_price = $query[0]['product_price'];
+                    $product_description = $query[0]['product_description'];
+                    $product_id = $query[0]['product_id'];
+                    $img_path = $query[0]['image_path'];
+                    
+                    $html = "<div class='product-detail'>
+                    
+                        <img src='../static/img/Samsung Z3 Fold 5G' class='card-img-top' alt='...'>
+                        <h1>$product_name</h1>
+                        <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
+                        <br><b style='font-size: xx-large;'>Rp. $product_price</b></br>
+                        $product_description
+                        <hr>
+                        <form action='add_to_cart.php' method='get' name='add_to_cart'>
+                        <input type='hidden' name='product_id' value='$product_id'>
+                        <input type='hidden' name='customer_id' value='$user_id'>
+                        <input type='submit' name='submit' value='Buy'>
+                        </form>
+                        <br>
+						<br>
+                    </div>";
+                    echo $html;
+                    ?>
+                </div>
+
+            </div>   
+    </div>
+
+    <div>
+        <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
+            <div class='carousel-indicators'>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
+            </div>
+            <div class="carousel-inner">
                         <div class='carousel-item active'>
                             <img src='../static/img/Samsung A53 5G.png' class='d-block w-100' alt='Samsung A53 5G'>
                         </div>
@@ -294,9 +330,6 @@ form .btn button{
                         <span class='carousel-control-next-icon' aria-hidden='true'></span>
                         <span class='visually-hidden'>Next</span>
                     </button>
-                </div>
-
-                <div class="product-container">
 					<div class="promotion">
 					<div class="carousel-inner1">
                   <div class="carousel-item active">
@@ -318,32 +351,6 @@ form .btn button{
                 </button>
                 </div>
 					</div>
-                    <?php
-                    $product_name = $query[0]['product_name'];
-                    $product_price = $query[0]['product_price'];
-                    $product_description = $query[0]['product_description'];
-                    $product_id = $query[0]['product_id'];
-                    $img_path = $query[0]['image_path'];
-
-                    $html = "<div class='product-detail'>
-                        <h1>$product_name</h1>
-                        <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
-                        <br><b style='font-size: xx-large;'>Rp. $product_price</b></br>
-                        $product_description
-                        <hr>
-                        <form action='add_to_cart.php' method='get' name='add_to_cart'>
-                        <input type='hidden' name='product_id' value='$product_id'>
-                        <input type='hidden' name='customer_id' value='$user_id'>
-                        <input type='submit' name='submit' value='Buy'>
-                        </form>
-                        <br>
-						<br>
-                    </div>";
-                    echo $html;
-                    ?>
-                </div>
-
-            </div>   
     </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
