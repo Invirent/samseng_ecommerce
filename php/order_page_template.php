@@ -269,55 +269,11 @@ form .btn button{
 
     <div>
             <div class='main-container'>
-                <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
-                    <div class='carousel-indicators'>
-                        <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
-                        <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
-                        <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class='carousel-item active'>
-                            <img src='../static/img/Samsung A53 5G.png' class='d-block w-100' alt='Samsung A53 5G'>
-                        </div>
-                        <div class='carousel-item'>
-                            <img src='../static/img/Samsung A53 two.jpg' class='d-block w-100' alt='...'>
-                        </div>
-                        <div class='carousel-item'>
-                            <img src='../static/img/Samsung A53 three.jpg' class='d-block w-100' alt='...'>
-                        </div>
-                    </div>
-                    <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
-                        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                        <span class='visually-hidden'>Previous</span>
-                    </button>
-                    <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next'>
-                        <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                        <span class='visually-hidden'>Next</span>
-                    </button>
+                <div>
                 </div>
 
-                <div class="product-container">
-					<div class="promotion">
-					<div class="carousel-inner1">
-                  <div class="carousel-item active">
-                    <img src="../static/img/AC.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../static/img/Promo_Gajian.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../static/img/Galaxy_A53.jpg" class="d-block w-100" alt="...">
-                  </div>
-						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-                </div>
-					</div>
+            <div class="product-container">
+                
                     <?php
                     $product_name = $query[0]['product_name'];
                     $product_price = $query[0]['product_price'];
@@ -346,6 +302,55 @@ form .btn button{
                 </div>
 
             </div>   
+    </div>
+
+    <div>
+        <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
+            <div class='carousel-indicators'>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
+            </div>
+            <div class="carousel-inner">
+                        <div class='carousel-item active'>
+                            <img src='../static/img/Samsung A53 5G.png' class='d-block w-100' alt='Samsung A53 5G'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/Samsung A53 two.jpg' class='d-block w-100' alt='...'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/Samsung A53 three.jpg' class='d-block w-100' alt='...'>
+                        </div>
+                    </div>
+                    <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
+                        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Previous</span>
+                    </button>
+                    <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next'>
+                        <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Next</span>
+                    </button>
+					<div class="promotion">
+					<div class="carousel-inner1">
+                  <div class="carousel-item active">
+                    <img src="../static/img/AC.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../static/img/Promo_Gajian.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../static/img/Galaxy_A53.jpg" class="d-block w-100" alt="...">
+                  </div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+					</div>
     </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
