@@ -72,13 +72,16 @@
 
         .product-container {
             padding-top: 15px;
-            padding-left: 1080px;
-			width:500px;
+            padding-left: 180px;
+			width: 100px;
 			height: 900px;
+            display: flex;
+            flex-wrap: wrap;
+            word-break: break-all;
         }
 		.main-container{
-		width: 1460px;
-		height: 900px;
+		width: 840px;
+		height: 500px;
 		}
 		.promotion{
 			float: left;
@@ -224,7 +227,24 @@ form .btn button{
     height:480px;
     width:850px;
 }
-
+.desc{
+    display: flex;
+    flex-wrap: wrap;
+}
+.x{
+    font-size:15px;
+    color: black;
+    text-decoration: none;
+    word-break: break-word;
+}
+@media (max-width: 991px){
+    .x{
+    font-size:10px;
+    text-align:justify;
+    word-break: break-all;
+    }
+    
+}
 
     </style>
 
@@ -273,27 +293,29 @@ form .btn button{
     <div>
             <div class='main-container'>
                 <div>
-                </div>
-
-            <div class="product-container">
-                
-                    <?php
+                <?php
                     $product_name = $query[0]['product_name'];
                     $product_price = $query[0]['product_price'];
                     $product_description = $query[0]['product_description'];
                     $product_id = $query[0]['product_id'];
                     $img_path = $query[0]['image_path'];
-                    
-                    $html = "
-                    
-                        <img src='../static/img/$img_path' class='card-img-top' alt='...'>
+                    $html=" <img src='../static/img/$img_path' class='card-img-top' alt='...'>";
+                    echo $html;
+                    ?>
+                </div>
+                </div>
+
+            <div class="product-container">             
+                    <?php                  
+                    $html = "                     
                         <div class='product-detail'>
                         <h1>$product_name</h1>
                         <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
                         <br><b style='font-size: xx-large;'>Rp. $product_price</b></br>
-                        $product_description
+                        <a class='x'>$product_description</a>
                         <hr>
-                        <form action='add_to_cart.php' method='get' name='add_to_cart'>
+                        
+                        <form action='add_to_cart.php' method='get' name='add_to_cart'class='desc'>
                         <input type='hidden' name='product_id' value='$product_id'>
                         <input type='hidden' name='customer_id' value='$user_id'>
                         <input type='submit' name='submit' value='Buy'>
@@ -306,7 +328,7 @@ form .btn button{
                 </div>
 
             </div>   
-    </div>
+
 
     <!-- <div> -->
         <!-- <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
