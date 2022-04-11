@@ -13,7 +13,10 @@
             product_template.uom_id as uom_id,
             product_template.description as product_description,
             product_template.image_path as image_path,
-            product_template.like_count as like_count
+            product_template.like_count as like_count,
+            product_template.product_sold as product_sold,
+            product_template.product_rate as product_rate,
+            product_template.total_ulasan as total_ulasan
         FROM product_template
         WHERE product_template.id = $product_id
         ";
