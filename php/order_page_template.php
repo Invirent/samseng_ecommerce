@@ -32,6 +32,36 @@
         .background-samsung {
             background-color: rgb(240, 210, 45);
         }
+
+        .main-container{
+		    width: 100%;
+		    height: 100%;
+		}
+
+        .product-image {
+            padding-top: 50px;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-bottom: 50px;
+            border-radius: 15px;
+            float: left;
+            height: 40%;
+            width: 50%;
+        }
+
+        .product-detail {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        /* .product-detail {
+            float: right;
+        } */
+
+        /* .card-img-top {
+            height: 30%;
+            width: 30%;
+        } */
         
         /* .carousel {
             width: 60%;
@@ -57,20 +87,17 @@
             width:10%;
         } */
 
-        /* .product-detail {
-            padding-bottom: 10px;
-			width: 900px;
-        } */
+        
         /* .carousel-inner1 {
-            /* padding-top: 10px;
+            padding-top: 10px;
             padding-left: 20px;
-            padding-bottom: 25px; */
-            /* width: 860px;
+            padding-bottom: 25px;
+            width: 860px;
             height: 300px;
             transition: opacity .4s ease;
         } */ */
 
-        .product-container {
+        /* .product-container {
             padding-top: 15px;
             padding-left: 180px;
 			width: 500px;
@@ -89,14 +116,14 @@
 			margin-top:500px;
 			margin-left:-1080px;
 			width:750px;
-		}
-        *{
+		} */
+        /* *{
   margin: 0;
   padding: 0;
   outline: none;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-}
+} */
 .show-btn{
   background: #fff;
   padding: 10px 20px;
@@ -290,45 +317,43 @@ form .btn button{
         </div>
     </nav>
 
-    <div>
-            <div class='main-container'>
-                <div>
-                <?php
-                    $product_name = $query[0]['product_name'];
-                    $product_price = $query[0]['product_price'];
-                    $product_description = $query[0]['product_description'];
-                    $product_id = $query[0]['product_id'];
-                    $img_path = $query[0]['image_path'];
-                    $html=" <img src='../static/img/$img_path' class='card-img-top' alt='...'>";
-                    echo $html;
-                    ?>
+    <div class='main-container'>
+        <div class='product-container'>
+            <?php
+                $product_name = $query[0]['product_name'];
+                $like_count = $query [0]['like_count'];
+                $product_price = $query[0]['product_price'];
+                $product_description = $query[0]['product_description'];
+                $product_id = $query[0]['product_id'];
+                $img_path = $query[0]['image_path'];
+                $product_sold = $query[0]['product_sold'];
+                $product_rate = $query[0]['product_rate'];
+                $total_ulasan = $query[0]['total_ulasan'];
+                    
+                $html = "
+                <div class='product-image'>
+                    <img src='../static/img/$img_path' class='card-img-top' alt='...'>
                 </div>
+                <div class='product-detail'>                                            
+                    <h1>$product_name</h1>
+                    <b style='color: grey;'>Disukai oleh $like_count+ • Terjual $product_sold+ • ⭐$product_rate ($total_ulasan Ulasan)</b> 
+                    <br><b style='font-size: xx-large;'>Rp. $product_price</b></br>
+                    $product_description
+                    <hr>
+                    <form action='add_to_cart.php' method='get' name='add_to_cart'>
+                    <input type='hidden' name='product_id' value='$product_id'>
+                    <input type='hidden' name='customer_id' value='$user_id'>
+                    <input type='submit' name='submit' value='Buy'>
+                    </form>
+                    <br>
+					<br>
                 </div>
-
-            <div class="product-container">             
-                    <?php                  
-                    $html = "                     
-                        <div class='product-detail'>
-                        <h1>$product_name</h1>
-                        <b style='color: grey;'>Terjual 1K+ ⭐5 (510 Ulasan)</b> 
-                        <br><b style='font-size: xx-large;'>Rp. $product_price</b></br>
-                        <a class='x'>$product_description</a>
-                        <hr>
-                        
-                        <form action='add_to_cart.php' method='get' name='add_to_cart'class='desc'>
-                        <input type='hidden' name='product_id' value='$product_id'>
-                        <input type='hidden' name='customer_id' value='$user_id'>
-                        <input type='submit' name='submit' value='Buy'>
-                        </form>
-                        <br>
-						<br>
-                    </div>";
-                    echo $html;
-                    ?>
-                </div>
-
-            </div>   
-
+                ";
+                echo $html;
+            ?>
+        </div>    
+        <div></div>  
+    </div>
 
     <!-- <div> -->
         <!-- <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
