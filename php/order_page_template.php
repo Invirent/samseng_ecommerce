@@ -108,7 +108,7 @@
         /* .product-container {
             padding-top: 15px;
             padding-left: 180px;
-			width: 100px;
+			width: 500px;
 			height: 900px;
             display: flex;
             flex-wrap: wrap;
@@ -259,7 +259,7 @@ form .btn button{
     clear:both;
 }
 .card-img-top{
-    height:480px;
+    height:500px;
     width:850px;
 }
 .desc{
@@ -346,7 +346,7 @@ form .btn button{
                     <h1>$product_name</h1>
                     <b style='color: grey;'>Disukai oleh $like_count+ • Terjual $product_sold+ • ⭐$product_rate ($total_ulasan Ulasan)</b> 
                     <br><b style='font-size: xx-large;'>Rp. $product_price</b></br>
-                    $product_description
+                    <a class='x'>$product_description</a>
                     <hr>
                     <form action='add_to_cart.php' method='get' name='add_to_cart'>
                     <input type='hidden' name='product_id' value='$product_id'>
