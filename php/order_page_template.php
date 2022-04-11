@@ -73,7 +73,7 @@
         .product-container {
             padding-top: 15px;
             padding-left: 180px;
-			width: 100px;
+			width: 500px;
 			height: 900px;
             display: flex;
             flex-wrap: wrap;
@@ -224,7 +224,7 @@ form .btn button{
     clear:both;
 }
 .card-img-top{
-    height:480px;
+    height:500px;
     width:850px;
 }
 .desc{
