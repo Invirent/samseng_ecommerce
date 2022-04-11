@@ -47,14 +47,9 @@
             padding-left: 50px;
             padding-right: 50px;
             padding-bottom: 50px;
-            
             float: left;
             height: 100%;
             width: 55%;
-        }
-
-        .card-img-top {
-            border-radius: 15px;
         }
 
         .product-detail {
@@ -261,6 +256,7 @@ form .btn button{
 .card-img-top{
     height:500px;
     width:850px;
+    border-radius: 15px;
 }
 .desc{
     display: flex;
