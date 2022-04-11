@@ -37,16 +37,24 @@
 		    width: 100%;
 		    height: 100%;
 		}
+        .product-container{
+            width: 100%;
+            height: 100%;
+        }
 
         .product-image {
             padding-top: 50px;
             padding-left: 50px;
             padding-right: 50px;
             padding-bottom: 50px;
-            border-radius: 15px;
+            
             float: left;
-            height: 40%;
-            width: 50%;
+            height: 100%;
+            width: 55%;
+        }
+
+        .card-img-top {
+            border-radius: 15px;
         }
 
         .product-detail {
