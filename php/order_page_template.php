@@ -45,10 +45,13 @@
             padding-bottom: 50px;
             border-radius: 15px;
             float: left;
-            /* height: 500px;
-            width: 500px; */
             height: 40%;
             width: 50%;
+        }
+
+        .product-detail {
+            padding-top: 50px;
+            padding-bottom: 50px;
         }
 
         /* .product-detail {
@@ -84,10 +87,7 @@
             width:10%;
         } */
 
-        /* .product-detail {
-            padding-bottom: 10px;
-			width: 900px;
-        } */
+        
         /* .carousel-inner1 {
             padding-top: 10px;
             padding-left: 20px;
@@ -95,16 +95,22 @@
             width: 860px;
             height: 300px;
             transition: opacity .4s ease;
-        } */
+        } */ */
 
         /* .product-container {
             padding-top: 15px;
-            padding-left: 1080px;
-			width:500px;
+            padding-left: 180px;
+			width: 100px;
 			height: 900px;
-        } */
-		
-		/* .promotion{
+            display: flex;
+            flex-wrap: wrap;
+            word-break: break-all;
+        }
+		.main-container{
+		width: 840px;
+		height: 500px;
+		}
+		.promotion{
 			float: left;
 			height:900px;
 			margin-top:500px;
@@ -244,7 +250,28 @@ form .btn button{
 .clear{
     clear:both;
 }
-
+.card-img-top{
+    height:480px;
+    width:850px;
+}
+.desc{
+    display: flex;
+    flex-wrap: wrap;
+}
+.x{
+    font-size:15px;
+    color: black;
+    text-decoration: none;
+    word-break: break-word;
+}
+@media (max-width: 991px){
+    .x{
+    font-size:10px;
+    text-align:justify;
+    word-break: break-all;
+    }
+    
+}
 
     </style>
 
