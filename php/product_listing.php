@@ -72,24 +72,25 @@
             transform: scale(1.02);
         }
         form {
-  background-color: orange;
-  width: 300px;
-  height: 44px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+            background-color: orange;
+            width: 300px;
+            height: 44px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
 
-    ::placeholder{
-        color: orange;
-        opacity: 0.7;
-    }
-    button{
-margin-left: 30px;
-background: yellow;
+        ::placeholder{
+            color: orange;
+            opacity: 0.7;
+        }
 
-    }
+        button{
+            margin-left: 30px;
+            background: yellow;
+        }
+
     </style>
 </head>
 <body>
