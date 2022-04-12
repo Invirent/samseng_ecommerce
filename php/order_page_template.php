@@ -40,22 +40,14 @@
         .product-container{
             width: 100%;
             height: 100%;
-<<<<<<< HEAD
-            padding-bottom: 20px;
-=======
             padding-bottom: 50px;
->>>>>>> 6201864d7bac5c1ee18739f84a1076301878a97a
         }
 
         .product-image {
             padding-top: 25px;
             padding-left: 50px;
             padding-right: 50px;
-<<<<<<< HEAD
-            padding-bottom: 50px;
-=======
             padding-bottom: 10px;
->>>>>>> 6201864d7bac5c1ee18739f84a1076301878a97a
             float: left;
             height: 60%;
             width: 55%;
