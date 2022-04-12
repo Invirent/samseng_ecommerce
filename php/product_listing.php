@@ -199,23 +199,24 @@ background: yellow;
         $product = $product_id['product_id'];
         $category_name = $product_id['category_name'];
         $html = "
-
         <div class='card mr-2 ml-2' style='width: 16rem;'>
+            <a href='order_page_template.php?product_id=$product'>
             <img src='../static/img/$img_path' class='card-img-top' alt='...'>
             <div class='card-body bg-light'>
-                <h5 class='card-title'>$product_name</h5>
-                <p class='card-text'>$category_name</p>
-                <i class='fa fa-star text-success'></i>
-                <i class='fa fa-star text-success'></i>
-                <i class='fa fa-star text-success'></i>
-                <i class='fa fa-star-half text-success'></i>
-                <i class='fa fa-star-o text-success'></i>
-                <br>
-                <a href='order_page_template.php?product_id=$product' 
-                class='btn btn-primary'>Detail</a>
-                <a href='order_page_template.php?product_id=$product' 
-                class='btn btn-danger'>Rp. $product_price</a>
+            <h5 class='card-title'>$product_name</h5>
+            <p class='card-text'>$category_name</p>
+            <i class='fa fa-star text-success'></i>
+            <i class='fa fa-star text-success'></i>
+            <i class='fa fa-star text-success'></i>
+            <i class='fa fa-star-half text-success'></i>
+            <i class='fa fa-star-o text-success'></i>
+            <br>
+            <a href='order_page_template.php?product_id=$product' 
+            class='btn btn-primary'>Detail</a>
+            <a href='order_page_template.php?product_id=$product' 
+            class='btn btn-danger'>Rp. $product_price</a>
             </div>
+            </a>
         </div>
         ";
         echo $html;
