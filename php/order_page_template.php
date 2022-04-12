@@ -40,25 +40,21 @@
         .product-container{
             width: 100%;
             height: 100%;
+            padding-bottom: 50px;
         }
 
         .product-image {
-            padding-top: 50px;
+            padding-top: 25px;
             padding-left: 50px;
             padding-right: 50px;
-            padding-bottom: 50px;
-            
+            padding-bottom: 10px;
             float: left;
             height: 100%;
             width: 55%;
         }
 
-        .card-img-top {
-            border-radius: 15px;
-        }
-
         .product-detail {
-            padding-top: 50px;
+            padding-top: 30px;
             padding-bottom: 50px;
         }
 
@@ -259,8 +255,9 @@ form .btn button{
     clear:both;
 }
 .card-img-top{
-    height:500px;
-    width:850px;
+    height:550px;
+    width:880px;
+    border-radius: 15px;
 }
 .desc{
     display: flex;
@@ -355,6 +352,10 @@ form .btn button{
                     </form>
                     <br>
 					<br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                 </div>
                 ";
                 echo $html;
