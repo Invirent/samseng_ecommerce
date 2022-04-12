@@ -40,6 +40,7 @@
         .product-container{
             width: 100%;
             height: 100%;
+            padding-bottom: 20px;
         }
 
         .product-image {
@@ -47,14 +48,9 @@
             padding-left: 50px;
             padding-right: 50px;
             padding-bottom: 50px;
-            
             float: left;
-            height: 100%;
+            height: 60%;
             width: 55%;
-        }
-
-        .card-img-top {
-            border-radius: 15px;
         }
 
         .product-detail {
