@@ -54,7 +54,7 @@
         }
 
         .product-detail {
-            padding-top: 50px;
+            padding-top: 30px;
             padding-bottom: 50px;
         }
 
