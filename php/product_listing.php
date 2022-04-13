@@ -72,24 +72,25 @@
             transform: scale(1.02);
         }
         form {
-  background-color: orange;
-  width: 300px;
-  height: 44px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+            background-color: orange;
+            width: 300px;
+            height: 44px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
 
-    ::placeholder{
-        color: orange;
-        opacity: 0.7;
-    }
-    button{
-margin-left: 30px;
-background: yellow;
+        ::placeholder{
+            color: orange;
+            opacity: 0.7;
+        }
 
-    }
+        button{
+            margin-left: 30px;
+            background: yellow;
+        }
+
     </style>
 </head>
 <body>
@@ -105,7 +106,7 @@ background: yellow;
             <div class="collapse navbar-collapse" id="navbar_content">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
@@ -199,23 +200,24 @@ background: yellow;
         $product = $product_id['product_id'];
         $category_name = $product_id['category_name'];
         $html = "
-
         <div class='card mr-2 ml-2' style='width: 16rem;'>
+            <a href='order_page_template.php?product_id=$product'>
             <img src='../static/img/$img_path' class='card-img-top' alt='...'>
             <div class='card-body bg-light'>
-                <h5 class='card-title'>$product_name</h5>
-                <p class='card-text'>$category_name</p>
-                <i class='fa fa-star text-success'></i>
-                <i class='fa fa-star text-success'></i>
-                <i class='fa fa-star text-success'></i>
-                <i class='fa fa-star-half text-success'></i>
-                <i class='fa fa-star-o text-success'></i>
-                <br>
-                <a href='order_page_template.php?product_id=$product' 
-                class='btn btn-primary'>Detail</a>
-                <a href='order_page_template.php?product_id=$product' 
-                class='btn btn-danger'>Rp. $product_price</a>
+            <h5 class='card-title'>$product_name</h5>
+            <p class='card-text'>$category_name</p>
+            <i class='fa fa-star text-success'></i>
+            <i class='fa fa-star text-success'></i>
+            <i class='fa fa-star text-success'></i>
+            <i class='fa fa-star-half text-success'></i>
+            <i class='fa fa-star-o text-success'></i>
+            <br>
+            <a href='order_page_template.php?product_id=$product' 
+            class='btn btn-primary'>Detail</a>
+            <a href='order_page_template.php?product_id=$product' 
+            class='btn btn-danger'>Rp. $product_price</a>
             </div>
+            </a>
         </div>
         ";
         echo $html;
