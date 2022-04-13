@@ -44,7 +44,8 @@
             </div>
             <?php
                 if (!isset($_SESSION['username'])) {
-                    $login = "<a href='html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
+                    $login = "  <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login_penjual.php'>Login Penjual</a>
+                    <a href='html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
                     <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login.php'>Login</a>";
                 }else{
                     $login = "<a href='html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
