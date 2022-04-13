@@ -43,13 +43,7 @@
             <div class="collapse navbar-collapse" id="navbar_content">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shopping_cart.php"><i class="fa fa-shopping-cart"></i>Cart</a>
+                        <a class="nav-link active" aria-current="page" href="../index_penjual.php">Home</a>
                     </li>
                 </ul>
             </div>
