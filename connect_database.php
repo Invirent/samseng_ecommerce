@@ -40,10 +40,18 @@
             INSERT INTO $model ($keyword_sql)
             VALUES ($value_sql);
         ";
-        $result = mysqli_query($database,$sql);
+        mysqli_query($database,$sql);
         $last_id = mysqli_insert_id($database);
 
         return $last_id;
+    }
+
+    function unlinkData($table, $delete_id){
+        $database = connectLocalDb();
+        $sql = "
+        DELETE FROM $table
+        WHERE id = $delete_id";
+        mysqli_query($database,$sql);
     }
 
 ?>
