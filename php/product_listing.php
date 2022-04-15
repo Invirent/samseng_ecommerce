@@ -92,31 +92,32 @@
             transform: scale(1.02);
         }
         form {
-  background-color: orange;
-  width: 300px;
-  height: 44px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+            background-color: orange;
+            width: 300px;
+            height: 44px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
 
-    ::placeholder{
-        color: orange;
-        opacity: 0.7;
-    }
-    button{
-margin-left: 30px;
-background: yellow;
+        ::placeholder{
+            color: orange;
+            opacity: 0.7;
+        }
 
-    }
+        button{
+            margin-left: 30px;
+            background: yellow;
+        }
+
     </style>
 </head>
 <body>
     <!--navbar-->
     <nav class="navbar navbar-expand-lg navbar-light background-samsung">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="../index.php">
                 <img src="../static/img/samsung_logo.png" class="website-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_content" aria-controls="navbar_content" aria-expanded="false" aria-label="Toggle navigation">
@@ -125,7 +126,7 @@ background: yellow;
             <div class="collapse navbar-collapse" id="navbar_content">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>

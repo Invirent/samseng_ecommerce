@@ -34,7 +34,7 @@
     <!--navbar-->
     <nav class="navbar navbar-expand-lg navbar-light background-samsung">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="../index_penjual.php">
                 <img src="../static/img/samsung_logo.png" class="website-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_content" aria-controls="navbar_content" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,13 +43,7 @@
             <div class="collapse navbar-collapse" id="navbar_content">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shopping_cart.php"><i class="fa fa-shopping-cart"></i>Cart</a>
+                        <a class="nav-link active" aria-current="page" href="../index_penjual.php">Home</a>
                     </li>
                 </ul>
             </div>
