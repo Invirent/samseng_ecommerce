@@ -8,6 +8,15 @@
         $search = "";
     }
 
+    if (isset($_GET['category'])) {
+        if ($search == ""){
+            $search = "WHERE product_template.category_id = ".$_GET['category'];
+        } 
+        else{
+            $search .= " AND product_template.category_id = ".$_GET['category'];
+        }
+    }
+
     function queryProductTemplate($search) {
         $connect = connectLocalDb();
         $sql = "
@@ -26,6 +35,17 @@
             array_push($product_template, $row);
         }
         return $product_template;
+    }
+
+    function queryProductCategory() {
+        $connect = connectLocalDb();
+        $sql = "SELECT * FROM product_category";
+        $result = mysqli_query($connect, $sql);
+        $product_category = [];
+        while($row = mysqli_fetch_assoc($result)) {
+            array_push($product_category, $row);
+        }
+        return $product_category;
     }
 ?>
 <!DOCTYPE html>
@@ -144,12 +164,20 @@ background: yellow;
         <div class="col-md-2 bg-light">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item bg-warning"><i class="fa fa-list"></i> KATEGORI PRODUK</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> Smartphone</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> Laptop</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> Monitor</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> TV</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> AC</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> Kulkas</li>
+                <?php
+                    $query = queryProductCategory();
+                    foreach ($query as $row){
+                        $categ_id = $row['id'];
+                        $category_name = $row['name'];
+                        echo "<a href='product_listing.php?category=$categ_id'>
+                            <li class='list-group-item'>
+                            <i class='fa fa-angle-right'></i>
+                            $category_name
+                            </li>
+                        </a>
+                        ";
+                    }
+                ?>
             </ul>
             <li class="nav-item">
                     <form id="form" method="GET" action="product_listing.php">
