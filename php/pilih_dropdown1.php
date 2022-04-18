@@ -87,9 +87,6 @@ session_start();
     color: grey;
   }
   
-  .carousel {
-    max-width: 100%;
-  }
   
   @media (max-width: 800px) {
     .row {
@@ -129,6 +126,9 @@ session_start();
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="shopping_cart.php"><i class="fa fa-shopping-cart"></i>Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
                 </li>
             </ul>
         </div>
@@ -192,10 +192,9 @@ session_start();
         <td>
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Pilih Salah Satu
+                Samseng Pay
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="pilih_dropdown1.php">Samseng Pay</a></li>
                 <li><a class="dropdown-item" href="pilih_dropdown2.php">Virtual Account</a></li>
                 <li><a class="dropdown-item" href="pilih_dropdown3.php">Transfer antar bank</a></li>
               </ul>
@@ -210,35 +209,6 @@ session_start();
   </table>
 </form>
     
-<div>
-        <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
-            <div class='carousel-indicators'>
-                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
-                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
-                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
-            </div>
-            <div class="carousel-inner">
-                        <div class='carousel-item active'>
-                            <img src='../static/img/carousel-ramadhan.png' class='d-block w-100' alt='...'>
-                        </div>
-                        <div class='carousel-item'>
-                            <img src='../static/img/carousel-ramadhan3.png' class='d-block w-100' alt='...'>
-                        </div>
-                        <div class='carousel-item'>
-                            <img src='../static/img/carousel-ramadhan2.png' class='d-block w-100' alt='...'>
-                        </div>
-                    </div>
-                    <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
-                        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                        <span class='visually-hidden'>Previous</span>
-                    </button>
-                    <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next'>
-                        <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                        <span class='visually-hidden'>Next</span>
-                    </button>
-                </div>
-					</div>
-  </div>
 
 <footer>
     <div class="container-fluid">

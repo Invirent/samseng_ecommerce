@@ -49,7 +49,7 @@
             padding-right: 50px;
             padding-bottom: 10px;
             float: left;
-            height: 100%;
+            height: 60%;
             width: 55%;
         }
 
@@ -66,68 +66,7 @@
             height: 30%;
             width: 30%;
         } */
-        
-        /* .carousel {
-            width: 60%;
-            height: 50%;
-            float: left;
-        } */
-        /* .carousel-inner {
-            padding-top: 10px;
-            padding-left: 20px;
-            padding-bottom: 25px;
-            width: 860px;
-            height: 480px;
-            transition: opacity .6s ease;
-        } */
-        /* .carousel-control-prev {
-            height: 75%;
-            width:10%;
-        } */
 
-        /* .carousel-control-next {
-            padding-right: 10px;
-            height: 75%;
-            width:10%;
-        } */
-
-        
-        /* .carousel-inner1 {
-            padding-top: 10px;
-            padding-left: 20px;
-            padding-bottom: 25px;
-            width: 860px;
-            height: 300px;
-            transition: opacity .4s ease;
-        } */ */
-
-        /* .product-container {
-            padding-top: 15px;
-            padding-left: 180px;
-			width: 500px;
-			height: 900px;
-            display: flex;
-            flex-wrap: wrap;
-            word-break: break-all;
-        }
-		.main-container{
-		width: 840px;
-		height: 500px;
-		}
-		.promotion{
-			float: left;
-			height:900px;
-			margin-top:500px;
-			margin-left:-1080px;
-			width:750px;
-		} */
-        /* *{
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-} */
 .show-btn{
   background: #fff;
   padding: 10px 20px;
@@ -298,16 +237,20 @@ input[type=submit]{
             </div>
             
             <?php
-                if (!isset($_SESSION['user_id'])) {
-                    $login = "<a href='html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
-                    <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login.php'>Login</a>";
-                }else{
+                $upload="";
+                    if (!isset($_SESSION['username'])) {
+                    $login = "<a href='../html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
+                    <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
+                    }else{
                     $login = "<a href='profile_user.php'><i class='fa fa-user-circle-o'></i></a>";
-                }
-                echo $login;
-
-                
-            ?> 
+                    if (($_SESSION['role'] == 'admin')) {
+                    $upload = "<a href='upload_product.php'>
+                    <button>Upload Product</button></a>";
+        }
+    }
+    echo $upload;
+    echo $login;
+?> 
         </div>
     </nav>
 
@@ -353,54 +296,6 @@ input[type=submit]{
         <div></div>  
     </div>
 
-    <!-- <div> -->
-        <!-- <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
-            <div class='carousel-indicators'>
-                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
-                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
-                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
-            </div>
-            <div class="carousel-inner">
-                        <div class='carousel-item active'>
-                            <img src='../static/img/Samsung A53 5G.png' class='d-block w-100' alt='Samsung A53 5G'>
-                        </div>
-                        <div class='carousel-item'>
-                            <img src='../static/img/Samsung A53 two.jpg' class='d-block w-100' alt='...'>
-                        </div>
-                        <div class='carousel-item'>
-                            <img src='../static/img/Samsung A53 three.jpg' class='d-block w-100' alt='...'>
-                        </div>
-                    </div>
-                    <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
-                        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                        <span class='visually-hidden'>Previous</span>
-                    </button>
-                    <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next'>
-                        <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                        <span class='visually-hidden'>Next</span>
-                    </button>
-					<div class="promotion">
-					<div class="carousel-inner1">
-                  <div class="carousel-item active">
-                    <img src="../static/img/AC.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../static/img/Promo_Gajian.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../static/img/Galaxy_A53.jpg" class="d-block w-100" alt="...">
-                  </div>
-						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-                </div>
-					</div>
-    </div> -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="..//jquery.mycart.js"></script>
