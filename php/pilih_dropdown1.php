@@ -192,10 +192,9 @@ session_start();
         <td>
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Pilih Salah Satu
+                Samseng Pay
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="pilih_dropdown1.php">Samseng Pay</a></li>
                 <li><a class="dropdown-item" href="pilih_dropdown2.php">Virtual Account</a></li>
                 <li><a class="dropdown-item" href="pilih_dropdown3.php">Transfer antar bank</a></li>
               </ul>

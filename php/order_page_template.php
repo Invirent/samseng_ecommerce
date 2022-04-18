@@ -194,8 +194,8 @@ form .btn button{
     clear:both;
 }
 .card-img-top{
-    height:550px;
-    width:880px;
+    height:100%;
+    max-width:100%;
     border-radius: 15px;
 }
 .desc{

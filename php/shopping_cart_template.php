@@ -29,8 +29,8 @@
     <title>Home</title>
     <style>
         .cart-image{
-            max-height: 40px;
-            max-width: 40px;
+            max-height: 160px;
+            max-width: 160px;
         }
         .background-samsung{
             background-color: rgb(240, 210, 45);
