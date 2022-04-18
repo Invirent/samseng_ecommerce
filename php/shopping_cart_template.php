@@ -217,13 +217,13 @@
             </div>
             <div class="carousel-inner">
                         <div class='carousel-item active'>
-                            <img src='../static/img/carousel_ramadhan.png' class='d-block w-100' alt='...'>
+                            <img src='../static/img/carousel-ramadhan.png' class='d-block w-100' alt='...'>
                         </div>
                         <div class='carousel-item'>
-                            <img src='../static/img/carousel_ramadhan3.png' class='d-block w-100' alt='...'>
+                            <img src='../static/img/carousel-ramadhan3.png' class='d-block w-100' alt='...'>
                         </div>
                         <div class='carousel-item'>
-                            <img src='../static/img/carousel_ramadhan2.png' class='d-block w-100' alt='...'>
+                            <img src='../static/img/carousel-ramadhan2.png' class='d-block w-100' alt='...'>
                         </div>
                     </div>
                     <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
