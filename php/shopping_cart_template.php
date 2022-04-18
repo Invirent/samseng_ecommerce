@@ -49,7 +49,16 @@
         .carousel {
             max-width: 100%;
         }
-
+        input[type=submit]{
+    background: -webkit-linear-gradient(left, #c68e17, #d4a017, #E8A317, #FFE87C);
+    border: 2px solid black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 17px;
+    border-radius: 12px;
+}
     </style>
     <script>
         function removeCart(id){
@@ -180,7 +189,8 @@
                         </td>
                         
                         <td class='submit-right'>
-                            <input type='submit' name='submit' value='Submit'/>
+                        <br>
+                            <input type='submit' name='submit' value='proceed to payment'/>
                         </td>
                     </tr>
                 </table>
