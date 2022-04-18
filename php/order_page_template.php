@@ -49,7 +49,7 @@
             padding-right: 50px;
             padding-bottom: 10px;
             float: left;
-            height: 100%;
+            height: 60%;
             width: 55%;
         }
 
@@ -58,76 +58,10 @@
             padding-bottom: 50px;
         }
 
-        /* .product-detail {
-            float: right;
-        } */
-
-        /* .card-img-top {
-            height: 30%;
-            width: 30%;
-        } */
-        
-        /* .carousel {
-            width: 60%;
-            height: 50%;
-            float: left;
-        } */
-        /* .carousel-inner {
-            padding-top: 10px;
-            padding-left: 20px;
-            padding-bottom: 25px;
-            width: 860px;
-            height: 480px;
-            transition: opacity .6s ease;
-        } */
-        /* .carousel-control-prev {
-            height: 75%;
-            width:10%;
-        } */
-
-        /* .carousel-control-next {
-            padding-right: 10px;
-            height: 75%;
-            width:10%;
-        } */
-
-        
-        /* .carousel-inner1 {
-            padding-top: 10px;
-            padding-left: 20px;
-            padding-bottom: 25px;
-            width: 860px;
-            height: 300px;
-            transition: opacity .4s ease;
-        } */ */
-
-        /* .product-container {
-            padding-top: 15px;
-            padding-left: 180px;
-			width: 500px;
-			height: 900px;
-            display: flex;
-            flex-wrap: wrap;
-            word-break: break-all;
+        .carousel {
+            max-width: 100%;
         }
-		.main-container{
-		width: 840px;
-		height: 500px;
-		}
-		.promotion{
-			float: left;
-			height:900px;
-			margin-top:500px;
-			margin-left:-1080px;
-			width:750px;
-		} */
-        /* *{
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-} */
+        
 .show-btn{
   background: #fff;
   padding: 10px 20px;
@@ -201,30 +135,9 @@ form .btn{
   position: relative;
   overflow: hidden;
 }
-form .btn .inner{
-  height: 100%;
-  width: 300%;
-  position: absolute;
-  left: -100%;
-  z-index: -1;
-  background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
-  transition: all 0.4s;
-}
+
 form .btn:hover .inner{
   left: 0;
-}
-form .btn button{
-  height: 100%;
-  width: 100%;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-
 }
 
 .wrapper{
@@ -256,12 +169,22 @@ form .btn button{
 }
 .card-img-top{
     height:550px;
-    width:880px;
+    max-width:100%;
     border-radius: 15px;
 }
 .desc{
     display: flex;
     flex-wrap: wrap;
+}
+input[type=submit]{
+    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    border: 6px solid black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 26px;
+    border-radius: 15px;
 }
 .x{
     font-size:15px;

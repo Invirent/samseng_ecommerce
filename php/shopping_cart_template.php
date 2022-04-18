@@ -29,8 +29,8 @@
     <title>Home</title>
     <style>
         .cart-image{
-            max-height: 40px;
-            max-width: 40px;
+            max-height: 160px;
+            max-width: 160px;
         }
         .background-samsung{
             background-color: rgb(240, 210, 45);
@@ -45,6 +45,20 @@
             margin-left: 30px;
             text-align: right;
         }
+
+        .carousel {
+            max-width: 100%;
+        }
+        input[type=submit]{
+    background: -webkit-linear-gradient(left, #c68e17, #d4a017, #E8A317, #FFE87C);
+    border: 2px solid black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 17px;
+    border-radius: 12px;
+}
     </style>
     <script>
         function removeCart(id){
@@ -84,7 +98,7 @@
                     $login = "<a href='html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
                     <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login.php'>Login</a>";
                 }else{
-                    $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+                    $login = "<a href='profile_user.php'><i class='fa fa-user-circle-o'></i></a>";
                 }
                 echo $login;
             ?>
@@ -175,7 +189,8 @@
                         </td>
                         
                         <td class='submit-right'>
-                            <input type='submit' name='submit' value='Submit'/>
+                        <br>
+                            <input type='submit' name='submit' value='proceed to payment'/>
                         </td>
                     </tr>
                 </table>
@@ -184,6 +199,36 @@
     "; 
     echo $html;
 ?>
+
+    <div>
+        <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
+            <div class='carousel-indicators'>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
+            </div>
+            <div class="carousel-inner">
+                        <div class='carousel-item active'>
+                            <img src='../static/img/carousel-ramadhan.png' class='d-block w-100' alt='...'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/carousel-ramadhan3.png' class='d-block w-100' alt='...'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/carousel-ramadhan2.png' class='d-block w-100' alt='...'>
+                        </div>
+                    </div>
+                    <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
+                        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Previous</span>
+                    </button>
+                    <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next'>
+                        <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Next</span>
+                    </button>
+                </div>
+					</div>
+    </div>
 
     <footer>
         <div class="container-fluid">

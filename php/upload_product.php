@@ -28,6 +28,9 @@
     .text-right{
         margin-left: 70%;
     }
+    .carousel {
+        max-width: 100%;
+    }
     </style>
 </head>
 <body>
@@ -53,7 +56,7 @@
         $login = "<a href='../html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
         <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
     }else{
-        $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+        $login = "<a href='profile_user.php'><i class='fa fa-user-circle-o'></i></a>";
         if (($_SESSION['role'] == 'admin')) {
             $upload = "<a href='upload_product.php'>
             <button>Upload Product</button></a>";
@@ -122,6 +125,36 @@
             </tr>
         </table>
         </form>
+    </div>
+
+    <div>
+        <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
+            <div class='carousel-indicators'>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
+            </div>
+            <div class="carousel-inner">
+                        <div class='carousel-item active'>
+                            <img src='../static/img/carousel-ramadhan.png' class='d-block w-100' alt='...'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/carousel-ramadhan3.png' class='d-block w-100' alt='...'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/carousel-ramadhan2.png' class='d-block w-100' alt='...'>
+                        </div>
+                    </div>
+                    <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
+                        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Previous</span>
+                    </button>
+                    <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next'>
+                        <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Next</span>
+                    </button>
+                </div>
+					</div>
     </div>
 
     <footer>
