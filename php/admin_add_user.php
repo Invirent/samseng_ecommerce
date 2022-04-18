@@ -34,7 +34,7 @@
     <!--navbar-->
     <nav class="navbar navbar-expand-lg navbar-light background-samsung">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../index_penjual.php">
+            <a class="navbar-brand" href="index.php">
                 <img src="../static/img/samsung_logo.png" class="website-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_content" aria-controls="navbar_content" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,86 +43,91 @@
             <div class="collapse navbar-collapse" id="navbar_content">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index_penjual.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
                     </li>
                 </ul>
             </div>
-<?php
-    $upload="";
-    if (!isset($_SESSION['username'])) {
-        $login = "<a href='../html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
-        <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
-    }else{
-        $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
-        if (($_SESSION['role'] == 'admin')) {
-            $upload = "<a href='upload_product.php'>
-            <button>Upload Product</button></a>";
-        }
-    }
-    echo $upload;
-    echo $login;
+            <?php
+                if (!isset($_SESSION['username'])) {
+                    $login = "  <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login_penjual.php'>Login Penjual</a>
+                    <a href='../html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
+                    <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
+                }else{
+                    $upload = "<a href='admin_add_user.php'>
+            <button>Add User</button></a>";
+                    $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+                    echo $upload;
+                }
+
+                echo $login;
+            ?>
+        </div>
+    </nav>
 ?> 
         </div>
     </nav>
 
     <div clas="form-width">
-        <h1>Upload Product</h1>
-        <form action="push_product.php" method="POST" enctype="multipart/form-data">
-        <table class="table-width">
+        <h1>Add User</h1>
+<?php
+    $html = "
+        <form action='add_user_function.php' method='GET'>
+        <table class='table'>
             <tr>
-                <th class="border">Product Name</th>
-                <td class="border">
-                    <input type="text" class="form-width"
-                    name="product_name" placeholder=".... Samseng" require>
+                <th class='border'>Username</th>
+                <td class='border'>
+                    <input type='text' class='form-control'
+                    name='username' required>
                 </td>
             </tr>
             <tr>
-                <th class="border">Product Description</th>
-                <td class="border">
-                    <textarea name="product_desc" class="form-width"
-                    placeholder=".... Samseng"
-                    colspan="6" rowspan="10"></textarea>
+                <th class='border'>Name</th>
+                <td class='border'>
+                    <input type='text' class='form-control'
+                    name='name' required>
                 </td>
             </tr>
             <tr>
-                <th class="border">Product Price</th>
-                <td class="border">
-                    <input type="number" class="form-width" name="product_price" value="0">
+                <th class='border'>Password</th>
+                <td class='border'>
+                    <input type='password' class='form-control'
+                    name='password' required>
                 </td>
             </tr>
             <tr>
-                <th class="border">Category</th>
-                <td class="border">
-                    <select name="product_category" class="form-width" require>
-                    <?php
-                        $sql = "SELECT 
-                            product_category.id as category_id, 
-                            product_category.name as category_name
-                         FROM product_category";
-                        $connect = connectLocalDb();
-                        $result = mysqli_query($connect, $sql);
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<option value='".$row['category_id']."'>".$row['category_name']."</option>";
-                        }
-                    ?>
+                <th class='border'>Access Right</th>
+                <td class='border'>
+                    <select name='access_right' class='form-select'>
+                        <option value='portal' selected>Portal</option>
+                        <option value='admin'>Admin</option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <th class="border">Upload Image</th>
-                <td class="border">
-                    <input type="file" name="product_image">
+                <th class='border'>Address</th>
+                <td class='border'>
+                    <input class='form-control' type='text' name='address' required>
                 </td>
             </tr>
             <tr>
-                <th class="border"></th>
-                <th class="border">
-                    <button class="text-right" type="submit" name="submit" value="Uploads">Upload</button>
+                <th class='border'>
+                </th>
+                <th class='border'>
+                    <button class='text-right' type='submit' name='submit' value='Add'>Add</button>
                 </th>
             </tr>
         </table>
         </form>
     </div>
+    ";
+    echo $html;
+?>
 
     <footer>
         <div class="container-fluid">
