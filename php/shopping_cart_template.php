@@ -45,6 +45,29 @@
             margin-left: 30px;
             text-align: right;
         }
+
+        .carousel {
+            max-width: 100%;
+        }
+
+        /* .carousel-inner {
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-bottom: 25px;
+            width: 860px;
+            height: 480px;
+            transition: opacity .6s ease;
+        } */
+        /* .carousel-control-prev {
+            height: 75%;
+            width:10%;
+        } */
+
+        /* .carousel-control-next {
+            padding-right: 10px;
+            height: 75%;
+            width:10%;
+        } */
     </style>
     <script>
         function removeCart(id){
@@ -185,9 +208,35 @@
     echo $html;
 ?>
 
-    <!-- <div>
-
-    </div> -->
+    <div>
+        <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
+            <div class='carousel-indicators'>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
+            </div>
+            <div class="carousel-inner">
+                        <div class='carousel-item active'>
+                            <img src='../static/img/carousel_ramadhan.png' class='d-block w-100' alt='...'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/carousel_ramadhan3.png' class='d-block w-100' alt='...'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/carousel_ramadhan2.png' class='d-block w-100' alt='...'>
+                        </div>
+                    </div>
+                    <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
+                        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Previous</span>
+                    </button>
+                    <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next'>
+                        <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Next</span>
+                    </button>
+                </div>
+					</div>
+    </div>
 
     <footer>
         <div class="container-fluid">
