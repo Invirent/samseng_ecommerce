@@ -132,10 +132,7 @@
                         <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="shopping_cart.php"><i class="fa fa-shopping-cart"></i>Cart</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="order_page_template.php"><i class="fa fa-order-page"></i>Order Page</a>
+                        <a class="nav-link" href="shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>

@@ -50,24 +50,6 @@
             max-width: 100%;
         }
 
-        /* .carousel-inner {
-            padding-top: 10px;
-            padding-left: 20px;
-            padding-bottom: 25px;
-            width: 860px;
-            height: 480px;
-            transition: opacity .6s ease;
-        } */
-        /* .carousel-control-prev {
-            height: 75%;
-            width:10%;
-        } */
-
-        /* .carousel-control-next {
-            padding-right: 10px;
-            height: 75%;
-            width:10%;
-        } */
     </style>
     <script>
         function removeCart(id){
