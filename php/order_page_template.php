@@ -201,30 +201,9 @@ form .btn{
   position: relative;
   overflow: hidden;
 }
-form .btn .inner{
-  height: 100%;
-  width: 300%;
-  position: absolute;
-  left: -100%;
-  z-index: -1;
-  background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
-  transition: all 0.4s;
-}
+
 form .btn:hover .inner{
   left: 0;
-}
-form .btn button{
-  height: 100%;
-  width: 100%;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-
 }
 
 .wrapper{
@@ -255,13 +234,23 @@ form .btn button{
     clear:both;
 }
 .card-img-top{
-    height:100%;
+    height:550px;
     max-width:100%;
     border-radius: 15px;
 }
 .desc{
     display: flex;
     flex-wrap: wrap;
+}
+input[type=submit]{
+    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    border: 6px solid black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 26px;
+    border-radius: 15px;
 }
 .x{
     font-size:15px;
