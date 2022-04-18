@@ -47,7 +47,7 @@
                     $login = "<a href='../html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
                     <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login.php'>Login</a>";
                 }else{
-                    $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+                    $login = "<a href='profile_user.php'><i class='fa fa-user-circle-o'></i></a>";
                 }
                 echo $login;
             ?>

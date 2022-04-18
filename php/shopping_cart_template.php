@@ -1,6 +1,19 @@
 <?php 
     require __DIR__ . '/shopping_cart.php';
+
     session_start();
+
+    if (isset($_GET['remove'])){
+        $remove_id = $_GET['remove'];
+        unlinkData('cart_order', $remove_id);
+        header('Location: shopping_cart_template.php');
+    }
+
+    function removeCart($id){
+        $model = "cart_order";
+        unlinkData($model,$id);
+        header("Location: shopping_cart_template.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +46,14 @@
             text-align: right;
         }
     </style>
+    <script>
+        function removeCart(id){
+            var result = confirm("Are you sure you want to remove this item?");
+            if(result){
+                window.location.href = "shopping_cart_template.php?remove=" + id;
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Navbar -->
@@ -63,7 +84,7 @@
                     $login = "<a href='html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
                     <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login.php'>Login</a>";
                 }else{
-                    $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+                    $login = "<a href='profile_user.php'><i class='fa fa-user-circle-o'></i></a>";
                 }
                 echo $login;
             ?>
@@ -96,7 +117,7 @@
                     <div class='container'>
                         <div class='row'>
                             <div class='col'>
-                                <img src='$image_path' 
+                                <img src='../static/img/$image_path' 
                                 class='cart-image' alt='$product_name'/>
                             </div>
                             <div class='col'>
@@ -114,6 +135,11 @@
                 </td>
                 <td class='border text-center'>
                     Rp. <input type='text' id='total_$number' name='total_$number' value='$total' readonly/>
+                </td>
+                <td class='border text-center'>
+                    <p type='object' onclick='removeCart($id)'>
+                        <i class='fa fa-trash' aria-hidden='true'></i>
+                    </p>
                 </td>
             </tr>
         ";
@@ -138,7 +164,7 @@
                         <th class='border text-center'>
                             Quantity
                         </th>
-                        <th class='border text-center'>
+                        <th class='border text-center' colspan='2'>
                             Total
                         </th>
                     </tr>

@@ -8,6 +8,15 @@
         $search = "";
     }
 
+    if (isset($_GET['category'])) {
+        if ($search == ""){
+            $search = "WHERE product_template.category_id = ".$_GET['category'];
+        } 
+        else{
+            $search .= " AND product_template.category_id = ".$_GET['category'];
+        }
+    }
+
     function queryProductTemplate($search) {
         $connect = connectLocalDb();
         $sql = "
@@ -26,6 +35,17 @@
             array_push($product_template, $row);
         }
         return $product_template;
+    }
+
+    function queryProductCategory() {
+        $connect = connectLocalDb();
+        $sql = "SELECT * FROM product_category";
+        $result = mysqli_query($connect, $sql);
+        $product_category = [];
+        while($row = mysqli_fetch_assoc($result)) {
+            array_push($product_category, $row);
+        }
+        return $product_category;
     }
 ?>
 <!DOCTYPE html>
@@ -72,31 +92,32 @@
             transform: scale(1.02);
         }
         form {
-  background-color: orange;
-  width: 300px;
-  height: 44px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+            background-color: orange;
+            width: 300px;
+            height: 44px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
 
-    ::placeholder{
-        color: orange;
-        opacity: 0.7;
-    }
-    button{
-margin-left: 30px;
-background: yellow;
+        ::placeholder{
+            color: orange;
+            opacity: 0.7;
+        }
 
-    }
+        button{
+            margin-left: 30px;
+            background: yellow;
+        }
+
     </style>
 </head>
 <body>
     <!--navbar-->
     <nav class="navbar navbar-expand-lg navbar-light background-samsung">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="../index.php">
                 <img src="../static/img/samsung_logo.png" class="website-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_content" aria-controls="navbar_content" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,7 +126,7 @@ background: yellow;
             <div class="collapse navbar-collapse" id="navbar_content">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
@@ -128,7 +149,7 @@ background: yellow;
         $login = "<a href='../html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
         <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
     }else{
-        $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+        $login = "<a href='profile_user.php'><i class='fa fa-user-circle-o'></i></a>";
         if (($_SESSION['role'] == 'admin')) {
             $upload = "<a href='upload_product.php'>
             <button>Upload Product</button></a>";
@@ -144,12 +165,20 @@ background: yellow;
         <div class="col-md-2 bg-light">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item bg-warning"><i class="fa fa-list"></i> KATEGORI PRODUK</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> Smartphone</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> Laptop</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> Monitor</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> TV</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> AC</li>
-                <li class="list-group-item"><i class="fa fa-angle-right"></i> Kulkas</li>
+                <?php
+                    $query = queryProductCategory();
+                    foreach ($query as $row){
+                        $categ_id = $row['id'];
+                        $category_name = $row['name'];
+                        echo "<a href='product_listing.php?category=$categ_id'>
+                            <li class='list-group-item'>
+                            <i class='fa fa-angle-right'></i>
+                            $category_name
+                            </li>
+                        </a>
+                        ";
+                    }
+                ?>
             </ul>
             <li class="nav-item">
                     <form id="form" method="GET" action="product_listing.php">
