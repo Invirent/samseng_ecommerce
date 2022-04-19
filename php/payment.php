@@ -16,6 +16,30 @@
     .background-samsung{
         background-color: rgb(240, 210, 45);
     }
+
+    .carousel {
+        max-width: 100%;
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+    }
+
+    h2 {
+        text-align: center;
+        color: yellow;
+    }
+
+    h3 {
+        text-align: center;
+        color: #f78620;
+    }
+
+    .thankyou-content {
+        background-color: #101e3f;
+        text-align: center;
+    }
     </style>
     <title>Home</title>
 </head>
@@ -53,10 +77,52 @@
             ?>
         </div>
     </nav>
+    
+    <div class="thankyou-container">
+        <div class="thankyou-content">
+            <div>
+            <img src='../static/img/Thankyou_bg flip.png' alt="..."">
+                <h1>Purchase Success!!!</h1>
+                <h2>Thank You For Your Purchase!</h2>
+                <h3>We Appreciate Your </h3>
+                <h3>Most Recent Purchase and Hope You</h3>
+                <h2>ENJOY YOUR NEW ITEMS.</h2>
+                <a href="../index.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">EXPLORE MORE</a>
+            <img src='../static/img/Thankyou_bg.png' alt="...">
+            </div>
+            
+        </div>
+    </div>
 
-    <h1>
-        Thank You For your purchase
-    </h1>
+    <div>
+        <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
+            <div class='carousel-indicators'>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
+                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
+            </div>
+            <div class="carousel-inner">
+                        <div class='carousel-item active'>
+                            <img src='../static/img/carousel-ramadhan.png' class='d-block w-100' alt='...'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/carousel-ramadhan3.png' class='d-block w-100' alt='...'>
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='../static/img/carousel-ramadhan2.png' class='d-block w-100' alt='...'>
+                        </div>
+                    </div>
+                    <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
+                        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Previous</span>
+                    </button>
+                    <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next'>
+                        <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                        <span class='visually-hidden'>Next</span>
+                    </button>
+                </div>
+					</div>
+    </div>
 
     <footer>
         <div class="container-fluid">
@@ -66,6 +132,16 @@
                         <img src="../static/img/samsung_logo.png" class="website-logo">
                     </a>
                     <p>Samseng The Way of Life</p>
+                </div>
+                <div class="col" id="information_footer">
+                    <div class="row">
+                        <h4>Hyperlink</h4>
+                        <ul>                            
+                            <li>
+                                <a href="#" class="footer-link">About Us</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

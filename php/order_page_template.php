@@ -61,16 +61,17 @@
         .carousel {
             max-width: 100%;
         }
+
+        .show-btn{
+            background: #fff;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #3498db;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
         
-.show-btn{
-  background: #fff;
-  padding: 10px 20px;
-  font-size: 20px;
-  font-weight: 500;
-  color: #3498db;
-  cursor: pointer;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-}
 .show-btn, .container{
   position: absolute;
   top: 55%;
