@@ -11,6 +11,8 @@
     <link href="../static/css/important.css" rel="stylesheet">
     <link href="../static/css/carlos/home.css" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
     .background-samsung{
@@ -24,16 +26,19 @@
     h1 {
         text-align: center;
         color: white;
+        font-family: 'Boogaloo', cursive;
     }
 
     h2 {
         text-align: center;
         color: yellow;
+        font-family: 'Cormorant', serif;
     }
 
     h3 {
         text-align: center;
         color: #f78620;
+        font-family: 'Cormorant', serif;
     }
 
     .thankyou-content {
@@ -82,11 +87,12 @@
         <div class="thankyou-content">
             <div>
             <img src='../static/img/Thankyou_bg flip.png' alt="..."">
-                <h1>Purchase Success!!!</h1>
-                <h2>Thank You For Your Purchase!</h2>
+                <h1>Purchase Success !!!</h1>
+                <h2>Thank You For Your Purchase !</h2>
                 <h3>We Appreciate Your </h3>
                 <h3>Most Recent Purchase and Hope You</h3>
                 <h2>ENJOY YOUR NEW ITEMS.</h2>
+                <h1>SEE YOU NEXT TIME.</h1>
                 <a href="../index.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">EXPLORE MORE</a>
             <img src='../static/img/Thankyou_bg.png' alt="...">
             </div>
