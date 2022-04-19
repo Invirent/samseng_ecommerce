@@ -49,15 +49,20 @@
         .carousel {
             max-width: 100%;
         }
+        .fa-trash{
+            color: red;
+            font-size: 25px;
+        }
         input[type=submit]{
     background: -webkit-linear-gradient(left, #c68e17, #d4a017, #E8A317, #FFE87C);
-    border: 2px solid black;
+    border: 6px solid orange;
     color: white;
+    height: 8%;
     text-align: center;
     font-weight: bold;
     display: inline-block;
     font-size: 17px;
-    border-radius: 12px;
+    border-radius: 10px;
 }
     </style>
     <script>
@@ -169,7 +174,7 @@
                 method='GET' id='shopping_cart'>
                 <table class='table-form'>
                     <tr>
-                        <th class='border product-data'>
+                        <th class='border product-data' style='text-align:center;'>
                             Product
                         </th>
                         <th class='border text-center'>
@@ -201,6 +206,7 @@
 ?>
 
     <div>
+        <br>
         <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
             <div class='carousel-indicators'>
                 <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>

@@ -185,6 +185,8 @@ input[type=submit]{
     display: inline-block;
     font-size: 26px;
     border-radius: 15px;
+    transition: all 0.4s;
+    width: 10%;
 }
 .x{
     font-size:15px;
