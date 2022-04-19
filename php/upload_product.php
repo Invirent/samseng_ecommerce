@@ -170,7 +170,6 @@
                     <div class="row">
                         <h4>Hyperlink</h4>
                         <ul>
-                            
                             <li>
                                 <a href="#" class="footer-link">About Us</a>
                             </li>

@@ -186,6 +186,8 @@ input[type=submit]{
     display: inline-block;
     font-size: 26px;
     border-radius: 15px;
+    transition: all 0.4s;
+    width: 10%;
 }
 .x{
     font-size:15px;
@@ -226,48 +228,40 @@ input[type=submit]{
                     <li class="nav-item">
                         <a class="nav-link" href="shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
-                    </li>
                 </ul>
             </div>
             
             <?php
-                $upload="";
-                    if (!isset($_SESSION['username'])) {
-                    $login = "<a href='../html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
-                    <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
-                    }else{
-                    $login = "<a href='profile_user.php'><i class='fa fa-user-circle-o'></i></a>";
-                    if (($_SESSION['role'] == 'admin')) {
-                    $upload = "<a href='upload_product.php'>
-                    <button>Upload Product</button></a>";
-        }
-    }
-    echo $upload;
-    echo $login;
-?> 
+                if (!isset($_SESSION['user_id'])) {
+                    $login = "<a href='html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
+                    <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login.php'>Login</a>";
+                }else{
+                    $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+                }
+                echo $login;
+            ?> 
         </div>
     </nav>
 
     <div class='main-container'>
         <div class='product-container'>
             <?php
-                $product_name = $query[0]['product_name'];
-                $like_count = $query [0]['like_count'];
-                $product_price = $query[0]['product_price'];
-                $product_description = $query[0]['product_description'];
-                $product_id = $query[0]['product_id'];
-                $img_path = $query[0]['image_path'];
-                $product_sold = $query[0]['product_sold'];
-                $product_rate = $query[0]['product_rate'];
-                $total_ulasan = $query[0]['total_ulasan'];
+                if ((!isset($_GET['edit'])|| $_GET['edit']!= 1)) {
+                    $product_name = $query[0]['product_name'];
+                    $like_count = $query [0]['like_count'];
+                    $product_price = $query[0]['product_price'];
+                    $product_description = $query[0]['product_description'];
+                    $product_id = $query[0]['product_id'];
+                    $img_path = $query[0]['image_path'];
+                    $product_sold = $query[0]['product_sold'];
+                    $product_rate = $query[0]['product_rate'];
+                    $total_ulasan = $query[0]['total_ulasan'];
                     
-                $html = "
-                <div class='product-image'>
+                    $html = "
+                    <div class='product-image'>
                     <img src='../static/img/$img_path' class='card-img-top' alt='...'>
-                </div>
-                <div class='product-detail'>                                            
+                    </div>
+                    <div class='product-detail'>                                            
                     <h1>$product_name</h1>
                     <b style='color: grey;'>Disukai oleh $like_count+ • Terjual $product_sold+ • ⭐$product_rate ($total_ulasan Ulasan)</b> 
                     <br><b style='font-size: xx-large;'>Rp. $product_price</b></br>
@@ -284,46 +278,102 @@ input[type=submit]{
                     <br>
                     <br>
                     <br>
-                </div>
-                ";
-                echo $html;
-            ?>
-        </div>    
-        <div></div>  
-    </div>
+                    </div>
+                    ";
+                    echo $html;
+                }else{
+                    $product_name = $query[0]['product_name'];
+                    $like_count = $query [0]['like_count'];
+                    $product_price = $query[0]['product_price'];
+                    $product_description = $query[0]['product_description'];
+                    $product_category = $query[0]['category_id'];
+                    $product_id = $query[0]['product_id'];
+                    $img_path = $query[0]['image_path'];
+                    $product_sold = $query[0]['product_sold'];
+                    $product_rate = $query[0]['product_rate'];
+                    $total_ulasan = $query[0]['total_ulasan'];
 
+                    $category_query = "";
+                    $sql = "SELECT 
+                        product_category.id as category_id, 
+                        product_category.name as category_name
+                        FROM product_category";
+                    $connect = connectLocalDb();
+                    $result = mysqli_query($connect, $sql);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        if ($row['category_id'] == $product_category) {
+                            $category_query .="<option value='".$row['category_id']."' selected>
+                            ".$row['category_name']."
+                            </option>";
+                        }else{
+                            $category_query .="<option value='".$row['category_id']."'>".$row['category_name']."</option>";
+                        }
+                    }
+
+                    $html = "
+                    <form action='edit_product.php' method='POST' enctype='multipart/form-data' name='edit_product'>
+                    <table class='table'>
+                    <tr>
+                        <th class='border w-25'>Image <br/>
+                        *(Hanya Masukan Apabila ingin mengganti gambar)
+                        </th>
+                        <td class='border'>
+                            <input class='form-control' type='file' name='product_image'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class='border w-25'>Product Name</th>
+                        <td class='border'>
+                            <input class='form-control' type='text' name='product_name' value='$product_name' required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class='border w-25'>Product Category</th>
+                        <td class='border'>
+                            <select name='product_category' class='form-width' required>
+                            $category_query
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class='border w-25'>Product Price</th>
+                        <td class='border'>
+                            Rp. <input type='integer' name='product_price' value='$product_price' required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class='border w-25'>Product Description</th>
+                        <td class='border'>
+                            <textarea name='product_description' style='width: 100%;' required>$product_description</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class='border w-25'>
+                        <input type='hidden' name='product_id' value='$product_id'>
+                        </th>
+                        <td class='border'>
+                            <input type='submit' name='submit' value='Save'>
+                        </td>
+                    </tr>
+                    </form>
+                    <br>
+					<br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    </table>
+                    </div>
+                    ";
+                    echo $html;
+                }
+            ?>
+        </div> 
+    </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="..//jquery.mycart.js"></script>
-    <div>
-        <div id='carouselExampleIndicators' class='carousel slide' data-bs-ride='carousel'>
-            <div class='carousel-indicators'>
-                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
-                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
-                <button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
-            </div>
-            <div class="carousel-inner">
-                        <div class='carousel-item active'>
-                            <img src='../static/img/carousel-ramadhan.png' class='d-block w-100' alt='...'>
-                        </div>
-                        <div class='carousel-item'>
-                            <img src='../static/img/carousel-ramadhan3.png' class='d-block w-100' alt='...'>
-                        </div>
-                        <div class='carousel-item'>
-                            <img src='../static/img/carousel-ramadhan2.png' class='d-block w-100' alt='...'>
-                        </div>
-                    </div>
-                    <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
-                        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                        <span class='visually-hidden'>Previous</span>
-                    </button>
-                    <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next'>
-                        <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                        <span class='visually-hidden'>Next</span>
-                    </button>
-                </div>
-					</div>
-    </div>
+
     <footer>
         <div class="container-fluid">
             <div class="row">
