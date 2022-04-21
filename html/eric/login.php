@@ -22,6 +22,13 @@ if(isset($_POST["login"])){
             $_SESSION['username'] = $row['username'];
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['role'] = $row['access_right'];
+            if ($_SESSION['role'] == 'admin') {
+                header("Location: ../../php/admin_page_product.php");
+                exit;
+            } elseif ($_SESSION['role'] == 'portal') {
+                header("Location: ../../index.php");
+                exit;
+            }
             header("Location: ../../index.php");
             exit;
         }

@@ -29,10 +29,10 @@
     </style>
     <title>Home</title>
     <script>
-        function removeProduct(id){
+        function removeImage(id){
             var result = confirm("Are you sure you want to remove this item?");
             if(result){
-                window.location.href = "delete_product.php?id=" + id;
+                window.location.href = "delete_image.php?id=" + id;
             }
         }
     </script>
@@ -41,7 +41,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light background-samsung">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="../index.php">
                 <img src="../static/img/samsung_logo.png" class="website-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_content" aria-controls="navbar_content" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,10 +73,7 @@
                     <a href='../html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
                     <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
                 }else{
-                    $upload = "<a href='upload_product.php'>
-            <button>Add Product</button></a>";
                     $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
-                    echo $upload;
                 }
 
                 echo $login;
@@ -120,12 +117,8 @@
                                         <theader>
                                             <tr class="table-warning">
                                                 <th>Image</th>
-                                                <th>Product Name</th>
-                                                <th>Product Description</th>
-                                                <th>Product Price</th>
-                                                <th>Product Category</th>
-                                                <th>Product Sold</th>
-                                                <th></th>
+                                                <th>Location</th>
+                                                <th>Html ID</th>
                                             </tr>
                                         </theader>
                                         <tbody class="table">
@@ -133,28 +126,22 @@
     $conn = connectLocalDb();
     $sql = "
     SELECT 
-    product_template.id as product_id,
-    product_template.name as name,
-    product_template.description as description,
-    product_template.product_price as product_price,
-    product_category.name as product_category,
-    product_template.image_path as image_path,
-    product_template.product_sold as product_sold
-    FROM product_template
-    LEFT JOIN product_category ON product_category.id = product_template.category_id";
+    image_editor.id as image_id,
+    image_editor.image_path as image_path,
+    image_editor.location as location,
+    image_editor.html_id as html_id
+    FROM image_editor
+    ";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo "<tr class='table table-hover table-striped'>
                 <td><img src='../static/img/".$row['image_path']."' width='100' height='100'></td>
-                <td>".$row['name']."</td>
-                <td>".$row['description']."</td>
-                <td>".$row['product_price']."</td>
-                <td>".$row['product_category']."</td>
-                <td>".$row['product_sold']."</td>
+                <td>".$row['location']."</td>
+                <td>".$row['html_id']."</td>
                 <td>
-                    <a href='order_page_template.php?product_id=".$row['product_id']."&edit=1'><i class='fa fa-pencil'></i></a>
-                    <a href='#' onclick=removeProduct(".$row['product_id'].")><i class='fa fa-trash'></i></a>
+                    <a href='admin_edit_image.php?image_id=".$row['image_id']."&edit=1'><i class='fa fa-pencil'></i></a>
+                    <a href='#' onclick=removeImage(".$row['image_id'].")><i class='fa fa-trash'></i></a>
                 </td>
             </tr>";
         }

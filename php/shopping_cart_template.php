@@ -3,6 +3,10 @@
 
     session_start();
 
+    if (!isset($_SESSION['username'])) {
+        header('Location: ../html/eric/login.php');
+    }
+
     if (isset($_GET['remove'])){
         $remove_id = $_GET['remove'];
         unlinkData('cart_order', $remove_id);
@@ -92,9 +96,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../php/product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
-                    </li>
+                    <?php
+                        if (isset($_SESSION['user_id'])){
+                            echo "<li class='nav-item'>
+                            <a class='nav-link' href='shopping_cart_template.php'><i class='fa fa-shopping-cart'></i>Cart</a>
+                            </li>
+                            <li class='nav-item'>
+                            <a class='nav-link' href='portal_history.php'><i class='fa fa-history'></i>History</a>
+                            </li>";
+                        }
+                    ?>
                 </ul>
             </div>
             
@@ -165,6 +176,16 @@
         $number += 1;
     }
 
+    $submit_condition = "";
+
+    if ($number > 0){
+        $submit_condition = "
+        <br>
+        <input type='submit' name='submit' value='Proceed to Payment'/>
+        ";
+    }
+
+
     $html = "
         <div class='form-container'>
             <h3>
@@ -194,8 +215,7 @@
                         </td>
                         
                         <td class='submit-right'>
-                        <br>
-                            <input type='submit' name='submit' value='proceed to payment'/>
+                        $submit_condition
                         </td>
                     </tr>
                 </table>

@@ -36,14 +36,14 @@
     function queryTable($product_id) {
         $connect = connectLocalDb();
 
-        $username = $_SESSION['username'];
-        $search_user = SearchCurrentUser($username);
-        $user_query = mysqli_query($connect,$search_user);
-        $user_id = 0;
-        foreach ($user_query as $user) {
-            $user_id = $user['user_id'];
-            break;
-        }
+        // $username = $_SESSION['username'];
+        // $search_user = SearchCurrentUser($username);
+        // $user_query = mysqli_query($connect,$search_user);
+        // $user_id = 0;
+        // foreach ($user_query as $user) {
+        //     $user_id = $user['user_id'];
+        //     break;
+        // }
         $query = queryProduct($product_id);
         $product_order = [];
         $result = mysqli_query($connect,$query);

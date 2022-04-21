@@ -3,11 +3,11 @@
     session_start();
 
     if (!isset($_SESSION['username'])) {
-        header("Location:../index.php");
+        header("Location: ../index.php");
     }
     else{
         if ($_SESSION['role'] != 'admin') {
-            header("Location:../index.php");
+            header("Location: ../index.php");
         }
     }
 ?>
@@ -28,14 +28,6 @@
     }
     </style>
     <title>Home</title>
-    <script>
-        function removeProduct(id){
-            var result = confirm("Are you sure you want to remove this item?");
-            if(result){
-                window.location.href = "delete_product.php?id=" + id;
-            }
-        }
-    </script>
 </head>
 <body>
     <!-- Navbar -->
@@ -73,10 +65,7 @@
                     <a href='../html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
                     <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
                 }else{
-                    $upload = "<a href='upload_product.php'>
-            <button>Add Product</button></a>";
                     $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
-                    echo $upload;
                 }
 
                 echo $login;
@@ -115,17 +104,16 @@
                                 </ul>
                                 </div>
                                 <div class="col-9">
-                                    <h5 class="card-title">Product Listing</h5>
+                                    <h5 class="card-title">Order Listing</h5>
                                     <table class="table">
                                         <theader>
                                             <tr class="table-warning">
                                                 <th>Image</th>
-                                                <th>Product Name</th>
-                                                <th>Product Description</th>
-                                                <th>Product Price</th>
-                                                <th>Product Category</th>
-                                                <th>Product Sold</th>
-                                                <th></th>
+                                                <th>Name</th>
+                                                <th>Quantity</th>
+                                                <th>Total Price</th>
+                                                <th>Customer</th>
+                                                <th>Address</th>
                                             </tr>
                                         </theader>
                                         <tbody class="table">
@@ -133,29 +121,28 @@
     $conn = connectLocalDb();
     $sql = "
     SELECT 
-    product_template.id as product_id,
-    product_template.name as name,
-    product_template.description as description,
-    product_template.product_price as product_price,
-    product_category.name as product_category,
+    sale_order.id as sale_id,
+    sale_order.name as name,
+    sale_order.order_qty as quantity,
+    sale_order.total_price as total_price,
+    product_template.name as product_name,
     product_template.image_path as image_path,
-    product_template.product_sold as product_sold
-    FROM product_template
-    LEFT JOIN product_category ON product_category.id = product_template.category_id";
+    user_login.name as user_name,
+    user_login.address as user_address
+    FROM sale_order
+    LEFT JOIN product_template ON sale_order.product_id = product_template.id
+    LEFT JOIN user_login ON sale_order.customer_id = user_login.id
+    ";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo "<tr class='table table-hover table-striped'>
                 <td><img src='../static/img/".$row['image_path']."' width='100' height='100'></td>
-                <td>".$row['name']."</td>
-                <td>".$row['description']."</td>
-                <td>".$row['product_price']."</td>
-                <td>".$row['product_category']."</td>
-                <td>".$row['product_sold']."</td>
-                <td>
-                    <a href='order_page_template.php?product_id=".$row['product_id']."&edit=1'><i class='fa fa-pencil'></i></a>
-                    <a href='#' onclick=removeProduct(".$row['product_id'].")><i class='fa fa-trash'></i></a>
-                </td>
+                <td>".$row['product_name']."</td>
+                <td>".$row['quantity']."</td>
+                <td>".$row['total_price']."</td>
+                <td>".$row['user_name']."</td>
+                <td>".$row['user_address']."</td>
             </tr>";
         }
     }

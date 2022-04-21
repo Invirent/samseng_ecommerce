@@ -25,7 +25,8 @@
             product_template.name as product_name,
             product_template.product_price as product_price,
             product_template.image_path as image_url,
-            product_category.name as category_name
+            product_category.name as category_name,
+            product_template.product_rate as product_rate
         FROM product_template
         LEFT JOIN product_category ON product_template.category_id = product_category.id
         $search";
@@ -131,13 +132,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="checkout.php"><i class="fa fa-checkout"></i>Checkout</a>
-                    </li>
-                    
+                    <?php
+                        if (isset($_SESSION['user_id'])){
+                            echo "<li class='nav-item'>
+                            <a class='nav-link' href='shopping_cart_template.php'><i class='fa fa-shopping-cart'></i>Cart</a>
+                            </li>
+                            <li class='nav-item'>
+                            <a class='nav-link' href='portal_history.php'><i class='fa fa-history'></i>History</a>
+                            </li>";
+                        }
+                    ?>
                 </ul>
             </div>
 <?php
@@ -224,6 +228,7 @@
         $product_price = $product_id['product_price'];
         $product = $product_id['product_id'];
         $category_name = $product_id['category_name'];
+        $rating = $product_id['product_rate'] or 0;
         $html = "
         <div class='card mr-2 ml-2' style='width: 16rem;'>
             <a href='order_page_template.php?product_id=$product'>
@@ -231,11 +236,7 @@
             <div class='card-body bg-light'>
             <h5 class='card-title'>$product_name</h5>
             <p class='card-text'>$category_name</p>
-            <i class='fa fa-star text-success'></i>
-            <i class='fa fa-star text-success'></i>
-            <i class='fa fa-star text-success'></i>
-            <i class='fa fa-star-half text-success'></i>
-            <i class='fa fa-star-o text-success'></i>
+            ⭐$rating
             <br>
             <a href='order_page_template.php?product_id=$product' 
             class='btn btn-primary'>Detail</a>

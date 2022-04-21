@@ -1,5 +1,7 @@
 <?php 
+    require __DIR__ . '/connect_database.php';
     session_start();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,14 +39,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="php/product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="php/shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
-                    </li>
+                    <?php
+                        if (isset($_SESSION['user_id'])){
+                            echo "
+                            <li class='nav-item'>
+                            <a class='nav-link' href='php/shopping_cart_template.php'><i class='fa fa-shopping-cart'></i>Cart</a>
+                            </li>
+                            <li class='nav-item'>
+                            <a class='nav-link' href='php/portal_history.php'><i class='fa fa-history'></i>History</a>
+                            </li>
+                            ";
+                        }
+                    ?>
+
                 </ul>
             </div>
             <?php
                 if (!isset($_SESSION['username'])) {
-                    $login = "  <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login_penjual.php'>Login Penjual</a>
+                    $login = "
                     <a href='html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
                     <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login.php'>Login</a>";
                 }else{
@@ -55,37 +67,58 @@
         </div>
     </nav>
 
+    <?php
+        function queryHomeImage($location, $html_id){
+            $query = "SELECT 
+                image_editor.image_path as image_path
+            FROM image_editor WHERE location = '$location' AND html_id = '$html_id'";
+            $connect = connectLocalDb();
+            $result = mysqli_query($connect, $query);
+            
+            return $result;
+        }
+        $carousel_inner = queryHomeImage("home","carousel_inner");
+    ?>
+
     <div class="container-fluid">
         <!-- Carousel Item -->
         <div id="carousel-container">
             <div id="carousel_inner" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carousel_inner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Samsung Galaxy Z Fold"></button>
-                  <button type="button" data-bs-target="#carousel_inner" data-bs-slide-to="1" aria-label="Holiday Gift"></button>
-                  <button type="button" data-bs-target="#carousel_inner" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <?php
+                        $i = 0;
+                        foreach ($carousel_inner as $row){
+                            if ($i == 0){
+                                echo "<button type='button' data-bs-target='#carousel_inner' data-bs-slide-to='$i' class='active'></button>";
+                            }else{
+                            echo "<button type='button' data-bs-target='#carousel_inner' data-bs-slide-to='$i'></button>";
+                            }
+                            $i++;
+                        }
+                    ?>
                 </div>
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="static/img/home_samsung_img.png" class="d-block w-100" alt="Samsung Galaxy Z Fold">
-                    <div class="carousel-caption carousel-right d-none d-md-block">
-                        <h1 class="carousel-title">Galaxy Z Fold</h1>
-                        <p>Free 6 Month Samsung Care+.</p>
-                    </div>
-                  </div> 
-                  <div class="carousel-item">
-                    <img src="static/img/home_holiday_gift.png" class="d-block w-100" alt="Holiday Gift">
-                    <div class="carousel-caption carousel-middle carousel-right d-none d-md-block">
-                        <h1 class="carousel-title">The Perfect Gift</h1>
-                        <p>Get the perfect gift for family.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="static/img/home_tv.png" class="d-block w-100" alt="Samsung TV">
-                    <div class="carousel-caption carousel-left carousel-right d-none d-md-block">
-                        <h1 class="carousel-title">Big Screen Tv</h1>
-                        <p>Get the perfect gift for family.</p>
-                    </div>
-                  </div>
+                    <?php
+                        $data = 0;
+                        foreach ($carousel_inner as $row){
+                            $image_path = $row['image_path'];
+                            if ($data == 0){
+                                echo "
+                                <div class='carousel-item active'>
+                                    <img src='static/img/$image_path' class='d-block w-100' alt='$image_path'>
+                                </div>
+                                ";
+                            }else{
+                                echo "
+                                <div class='carousel-item'>
+                                <img src='static/img/$image_path' class='d-block w-100' alt='...'>
+                                </div>
+                                ";
+                            }
+                            $data ++;
+
+                        }
+                        ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carousel_inner" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -131,17 +164,6 @@
                         <img src="static/img/samsung_logo.png" class="website-logo">
                     </a>
                     <p>Samseng The Way of Life</p>
-                </div>
-                <div class="col" id="information_footer">
-                    <div class="row">
-                        <h4>Hyperlink</h4>
-                        <ul>
-                            
-                            <li>
-                                <a href="html/carlos/about_us.html" class="footer-link">About Us</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>

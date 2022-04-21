@@ -3,11 +3,11 @@
     session_start();
 
     if (!isset($_SESSION['username'])) {
-        header("Location: /../index.php");
+        header("Location:../index.php");
     }
     else{
         if ($_SESSION['role'] != 'admin') {
-            header("Location: /../index.php");
+            header("Location:../index.php");
         }
     }
 ?>
@@ -55,14 +55,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
-                    </li>
+                    <?php
+                        if (isset($_SESSION['user_id'])){
+                            echo "<li class='nav-item'>
+                            <a class='nav-link' href='shopping_cart_template.php'><i class='fa fa-shopping-cart'></i>Cart</a>
+                            </li>
+                            <li class='nav-item'>
+                            <a class='nav-link' href='portal_history.php'><i class='fa fa-history'></i>History</a>
+                            </li>";
+                        }
+                    ?>
                 </ul>
             </div>
             <?php
                 if (!isset($_SESSION['username'])) {
-                    $login = "  <a class='user-login btn btn-dark' id='user_login' type='button' href='html/eric/login_penjual.php'>Login Penjual</a>
+                    $login = "
                     <a href='../html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
                     <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
                 }else{
@@ -88,13 +95,19 @@
                                 <div class="col-3">
                                 <ul class="list-group list-group-flush">
                                     <a href="admin_page_product.php">
-                                        <li class="list-group-item">Product Listing</li>
+                                        <li class="list-group-item">User Listing</li>
                                     </a>
                                     <a href="admin_page_user.php">
                                         <li class="list-group-item">User Listing</li>
                                     </a>
                                     <a href="admin_add_user.php">
                                         <li class="list-group-item">Add User</li>
+                                    </a>
+                                    <a href="admin_order_view.php">
+                                        <li class="list-group-item">Incoming Order</li>
+                                    </a>
+                                    <a href="admin_image_editor.php">
+                                        <li class="list-group-item">Image Editor</li>
                                     </a>
                                 </ul>
                                 </div>

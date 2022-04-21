@@ -66,9 +66,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
-                    </li>
+                    <?php
+                        if (isset($_SESSION['user_id'])){
+                            echo "<li class='nav-item'>
+                            <a class='nav-link' href='shopping_cart_template.php'><i class='fa fa-shopping-cart'></i>Cart</a>
+                            </li>
+                            <li class='nav-item'>
+                            <a class='nav-link' href='portal_history.php'><i class='fa fa-history'></i>History</a>
+                            </li>";
+                        }
+                    ?>
                 </ul>
             </div>
             <?php

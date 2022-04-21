@@ -4,13 +4,18 @@
     $query = queryTable($product_id);
     $connect = connectLocalDb();
 
-    $username = $_SESSION['username'];
-    $search_user = searchCurrentUser($username);
-    $user_query = mysqli_query($connect,$search_user);
-    $user_id = 0;
-    foreach ($user_query as $user){
-        $user_id = $user['user_id'];
-        break;
+    $username = False;
+    $user_id = False;
+
+    if (isset($_SESSION['username'])){
+        $username = $_SESSION['username'];
+        $search_user = searchCurrentUser($username);
+        $user_query = mysqli_query($connect,$search_user);
+        $user_id = 0;
+        foreach ($user_query as $user){
+            $user_id = $user['user_id'];
+            break;
+        }
     }
 ?>
 
@@ -189,6 +194,19 @@ input[type=submit]{
     transition: all 0.4s;
     width: 10%;
 }
+
+.buy-now{
+    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    border: 6px solid black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 26px;
+    border-radius: 15px;
+    transition: all 0.4s;
+    width: 10%;
+}
 .x{
     font-size:15px;
     color: black;
@@ -225,9 +243,16 @@ input[type=submit]{
                     <li class="nav-item">
                         <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shopping_cart_template.php"><i class="fa fa-shopping-cart"></i>Cart</a>
-                    </li>
+                    <?php
+                        if (isset($_SESSION['user_id'])){
+                            echo "<li class='nav-item'>
+                            <a class='nav-link' href='shopping_cart_template.php'><i class='fa fa-shopping-cart'></i>Cart</a>
+                            </li>
+                            <li class='nav-item'>
+                            <a class='nav-link' href='portal_history.php'><i class='fa fa-history'></i>History</a>
+                            </li>";
+                        }
+                    ?>
                 </ul>
             </div>
             
@@ -257,6 +282,12 @@ input[type=submit]{
                     $product_rate = $query[0]['product_rate'];
                     $total_ulasan = $query[0]['total_ulasan'];
                     
+                    $buy_button = "<a class='buy-now' href='../html/eric/login.php'>Buy Now</a>";
+
+                    if ($user_id != False){
+                        $buy_button = "<input type='submit' name='submit' value='Buy'>";
+                    }
+
                     $html = "
                     <div class='product-image'>
                     <img src='../static/img/$img_path' class='card-img-top' alt='...'>
@@ -270,7 +301,7 @@ input[type=submit]{
                     <form action='add_to_cart.php' method='get' name='add_to_cart'>
                     <input type='hidden' name='product_id' value='$product_id'>
                     <input type='hidden' name='customer_id' value='$user_id'>
-                    <input type='submit' name='submit' value='Buy'>
+                    $buy_button
                     </form>
                     <br>
 					<br>

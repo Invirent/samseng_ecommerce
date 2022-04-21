@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['username'])) {
+    header('Location: ../html/eric/login.php');
+}
+
 ?>
 <html>
 <style type="text/css">  
@@ -127,9 +132,16 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link" href="product_listing.php"><i class="fa fa-product-listing"></i>Shop</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="shopping_cart.php"><i class="fa fa-shopping-cart"></i>Cart</a>
-                </li>
+                <?php
+                    if (isset($_SESSION['user_id'])){
+                        echo "<li class='nav-item'>
+                        <a class='nav-link' href='shopping_cart_template.php'><i class='fa fa-shopping-cart'></i>Cart</a>
+                        </li>
+                        <li class='nav-item'>
+                        <a class='nav-link' href='portal_history.php'><i class='fa fa-history'></i>History</a>
+                        </li>";
+                    }
+                ?>
             </ul>
         </div>
     </div>
@@ -191,14 +203,10 @@ session_start();
         </th>
         <td>
             <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Pilih Salah Satu
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="pilih_dropdown1.php">Samseng Pay</a></li>
-                <li><a class="dropdown-item" href="pilih_dropdown2.php">Virtual Account</a></li>
-                <li><a class="dropdown-item" href="pilih_dropdown3.php">Transfer antar bank</a></li>
-              </ul>
+              <select class="form-control" name="payment_method">
+                <option value="1">Samseng Pay</option>
+                <option value="2">Cash On Delivery</option>
+                <option value="3">Transfer Bank</option>
             </div>
         </td>
     </tr>

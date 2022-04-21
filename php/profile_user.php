@@ -55,6 +55,12 @@
         <br>
         <h1>User Profile</h1>
         <?php 
+            if ($variabel_role == "admin"){
+                $admin_page = "<a href='admin_page_product.php'>Go to Admin Page</a>";
+            }
+            else{
+                $admin_page = "";
+            }
             echo "<table class='table-form'>
                     <tr>
                         <td>
@@ -66,14 +72,10 @@
                             Username : $variabel_username
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Role : $variabel_role
-                        </td>
-                    </tr>
-                  </table>
-                  <br>
-                  <a href='../html/eric/logout.php'>Log Out</a> ";
+                    </table>
+                    <br>
+                    $admin_page    
+                    <a href='../html/eric/logout.php'>Log Out</a> ";
         ?>
     </div>
 </body>

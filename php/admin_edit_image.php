@@ -82,68 +82,48 @@
         <h1>Edit User</h1>
 <?php
     $connect = connectLocalDb();
-    $id = $_GET['user_id'];
+    $id = $_GET['image_id'];
     $query = "SELECT 
-    user_login.id as id,
-    user_login.username as username,
-    user_login.access_right as access_right,
-    user_login.address as address,
-    user_login.name as name
-    FROM user_login WHERE id = $id";
+    image_editor.id as image_id,
+    image_editor.image_path as image_path,
+    image_editor.location as location,
+    image_editor.html_id as html_id
+    FROM image_editor WHERE id = $id";
     $result = mysqli_query($connect, $query);
     $row = mysqli_fetch_assoc($result);
-    $user_id = $row['id'];
-    $username = $row['username'];
-    $access_right = $row['access_right'];
-    $name = $row['name'];
-    $address = $row['address'];
+    $image_id = $row['image_id'];
+    $image_path = $row['image_path'];
+    $location = $row['location'];
+    $html_id = $row['html_id'];
 
-    $portal = "";
-    $admin = "";
-
-    if ($access_right == 'admin') {
-        $portal = "";
-        $admin = "selected";
-    }else{
-        $portal = "selected"; 
-        $admin = "";
-    }
 
     $html = "
-        <form action='edit_user_function.php' method='GET'>
+        <form action='edit_image_function.php' method='POST'>
         <table class='table'>
             <tr>
-                <th class='border'>Username</th>
+                <th class='border'>Image<br>
+                *(Hanya Masukan Apabila ingin mengganti gambar)</th>
                 <td class='border'>
-                    <input type='text' class='form-control-plaintext'
-                    name='username' value='$username' required readonly>
+                    <input type='file' class='form-control'
+                    name='image'>
                 </td>
             </tr>
             <tr>
-                <th class='border'>Name</th>
+                <th class='border'>Location</th>
                 <td class='border'>
                     <input type='text' class='form-control'
-                    name='name' value='$name' required>
+                    name='location' value='$location' required>
                 </td>
             </tr
             <tr>
-                <th class='border'>Access Right</th>
+                <th class='border'>Html ID</th>
                 <td class='border'>
-                    <select name='access_right' class='form-select'>
-                        <option value='portal' $portal>Portal</option>
-                        <option value='admin' $admin>Admin</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th class='border'>Address</th>
-                <td class='border'>
-                    <input class='form-control' type='text' name='address' value='$address'>
+                    <input class='form-control' type='text' name='html_id' value='$html_id'>
                 </td>
             </tr>
             <tr>
                 <th class='border'>
-                    <input type='hidden' name='user_id' value='$user_id'>
+                    <input type='hidden' name='image_id' value='$image_id'>
                 </th>
                 <th class='border'>
                     <button class='text-right' type='submit' name='submit' value='Save'>Save</button>
