@@ -29,10 +29,10 @@
     </style>
     <title>Home</title>
     <script>
-        function removeProduct(id){
+        function removeUser(id){
             var result = confirm("Are you sure you want to remove this item?");
             if(result){
-                window.location.href = "delete_product.php?id=" + id;
+                window.location.href = "delete_user.php?id=" + id;
             }
         }
     </script>
@@ -145,7 +145,7 @@
                 <td>".$row['address']."</td>
                 <td>
                     <a href='edit_user_admin.php?user_id=".$row['user_id']."&edit=1'><i class='fa fa-pencil'></i></a>
-                    <a href='#' onclick=removeProduct(".$row['user_id'].")><i class='fa fa-trash'></i></a>
+                    <a href='#' onclick=removeUser(".$row['user_id'].")><i class='fa fa-trash'></i></a>
                 </td>
             </tr>";
         }

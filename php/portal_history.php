@@ -221,16 +221,7 @@
                     </a>
                     <p>Samseng The Way of Life</p>
                 </div>
-                <div class="col" id="information_footer">
-                    <div class="row">
-                        <h4>Hyperlink</h4>
-                        <ul>
-                            <li>
-                                <a href="#" class="footer-link">About Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </footer>

@@ -7,6 +7,8 @@
         $access_right = $_GET['access_right'];
         $name = $_GET['name'];
         $address = $_GET['address'];
+
+        $enc_password = password_hash($password, PASSWORD_DEFAULT);
         $sql = "
         INSERT INTO user_login (
             username,
@@ -16,7 +18,7 @@
             address
         ) VALUES (
             '$username',
-            '$password',
+            '$enc_password',
             '$access_right',
             '$name',
             '$address'
