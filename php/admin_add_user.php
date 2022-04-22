@@ -68,7 +68,7 @@
                 }else{
                     $upload = "<a href='admin_add_user.php'>
             <button>Add User</button></a>";
-                    $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+                    $login = "<a href='../php/profile_user.php'><i class='fa fa-user-circle-o'></i></a>";
                     echo $upload;
                 }
 

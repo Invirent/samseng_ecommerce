@@ -68,8 +68,8 @@
     }else{
         $login = "<a href='../php/profile_user.php'><i class='fa fa-user-circle-o'></i></a>";
         if (($_SESSION['role'] == 'admin')) {
-            $upload = "<a href='add_user_admin.php'>
-            <button>Add User</button></a>";
+            $upload = "<a href='admin_image_add.php'>
+            <button>Add Image</button></a>";
         }
     }
     echo $upload;
@@ -79,51 +79,33 @@
     </nav>
 
     <div clas="form-width">
-        <h1>Edit User</h1>
+        <h1>Add Image</h1>
 <?php
-    $connect = connectLocalDb();
-    $id = $_GET['image_id'];
-    $query = "SELECT 
-    image_editor.id as image_id,
-    image_editor.image_path as image_path,
-    image_editor.location as location,
-    image_editor.html_id as html_id
-    FROM image_editor WHERE id = $id";
-    $result = mysqli_query($connect, $query);
-    $row = mysqli_fetch_assoc($result);
-    $image_id = $row['image_id'];
-    $image_path = $row['image_path'];
-    $location = $row['location'];
-    $html_id = $row['html_id'];
-
-
     $html = "
-        <form action='edit_image_function.php' method='POST'>
+        <form action='admin_image_function.php' method='POST' enctype='multipart/form-data'>
         <table class='table'>
             <tr>
-                <th class='border'>Image<br>
-                *(Hanya Masukan Apabila ingin mengganti gambar)</th>
+                <th class='border'>Image</th>
                 <td class='border'>
                     <input type='file' class='form-control'
-                    name='image'>
+                    name='image_path' required>
                 </td>
             </tr>
             <tr>
                 <th class='border'>Location</th>
                 <td class='border'>
                     <input type='text' class='form-control'
-                    name='location' value='$location' required>
+                    name='location' required>
                 </td>
             </tr
             <tr>
                 <th class='border'>Html ID</th>
                 <td class='border'>
-                    <input class='form-control' type='text' name='html_id' value='$html_id'>
+                    <input class='form-control' type='text' name='html_id'>
                 </td>
             </tr>
             <tr>
                 <th class='border'>
-                    <input type='hidden' name='image_id' value='$image_id'>
                 </th>
                 <th class='border'>
                     <button class='text-right' type='submit' name='submit' value='Save'>Save</button>

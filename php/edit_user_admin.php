@@ -66,7 +66,7 @@
         $login = "<a href='../html/eric/registrasi.php' style='margin: 1.25em; text-decoration: none; color: black ;'>Registrasi</a>
         <a class='user-login btn btn-dark' id='user_login' type='button' href='../html/eric/login.php'>Login</a>";
     }else{
-        $login = "<a href='../html/eric/logout.php'><i class='fa fa-user-circle-o'></i></a>";
+        $login = "<a href='../php/profile_user.php'><i class='fa fa-user-circle-o'></i></a>";
         if (($_SESSION['role'] == 'admin')) {
             $upload = "<a href='add_user_admin.php'>
             <button>Add User</button></a>";
